@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUnility", "UnityUnility\UnityUnility.csproj", "{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility", "UnityUnility\UnityUtility.csproj", "{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
