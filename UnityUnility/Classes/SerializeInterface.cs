@@ -11,16 +11,21 @@ namespace UnityUtility
         [SerializeField]
         private GameObject m_gameobject;
 
+        private static TInterface component;
+
         public TInterface Interface
         {
             get
             {
-                var @interface = m_gameobject.GetComponent<TInterface>();
-                if (@interface == null)
+                if(component == null)
                 {
-                    throw new Exception($"GameObject\"{m_gameobject.name}\"は{typeof(TInterface).Name}を実装したコンポーネントをアタッチしていません");
+                    component = m_gameobject.GetComponent<TInterface>();
+                    if (component == null)
+                    {
+                        throw new Exception($"GameObject\"{m_gameobject.name}\"は{typeof(TInterface).Name}を実装したコンポーネントをアタッチしていません");
+                    }
                 }
-                return @interface;
+                return component;
             }
         }
     }
@@ -31,24 +36,30 @@ namespace UnityUtility
         [SerializeField]
         private List<GameObject> m_gameobjects;
 
-        public List<TInterface> InterfaceCollection
+        private static IReadOnlyList<TInterface> components;
+
+        public IReadOnlyList<TInterface> InterfaceCollection
         {
             get
             {
-                var interfaceList = new List<TInterface>();
-                foreach (var gameobj in m_gameobjects)
+                if(components == null)
                 {
-                    var @interface = gameobj.GetComponent<TInterface>();
-                    if (@interface == null)
+                    var interfaces = new List<TInterface>();
+                    foreach (var gameobj in m_gameobjects)
                     {
-                        UnityEngine.Debug.Log($"GameObject\"{gameobj.name}\"は{typeof(TInterface).Name}を実装したコンポーネントをアタッチしていません");
+                        var @interface = gameobj.GetComponent<TInterface>();
+                        if (@interface == null)
+                        {
+                            Debug.LogError($"GameObject\"{gameobj.name}\"は{typeof(TInterface).Name}を実装したコンポーネントをアタッチしていません");
+                        }
+                        else
+                        {
+                            interfaces.Add(@interface);
+                        }
                     }
-                    else
-                    {
-                        interfaceList.Add(@interface);
-                    }
+                    components = interfaces;
                 }
-                return interfaceList;
+                return components;
             }
         }
     }
