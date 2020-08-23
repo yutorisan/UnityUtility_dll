@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Rendering;
+using Unity;
 
 namespace UnityUtility
 {
@@ -11,21 +14,21 @@ namespace UnityUtility
         [SerializeField]
         private GameObject m_gameobject;
 
-        private static TInterface component;
+        private TInterface m_interface;
 
         public TInterface Interface
         {
             get
             {
-                if(component == null)
+                if(m_interface == null)
                 {
-                    component = m_gameobject.GetComponent<TInterface>();
-                    if (component == null)
+                    m_interface = m_gameobject.GetComponent<TInterface>();
+                    if (m_interface == null)
                     {
                         throw new Exception($"GameObject\"{m_gameobject.name}\"は{typeof(TInterface).Name}を実装したコンポーネントをアタッチしていません");
                     }
                 }
-                return component;
+                return m_interface;
             }
         }
     }
@@ -36,13 +39,13 @@ namespace UnityUtility
         [SerializeField]
         private List<GameObject> m_gameobjects;
 
-        private static IReadOnlyList<TInterface> components;
+        private IReadOnlyList<TInterface> m_interfaceCollection;
 
         public IReadOnlyList<TInterface> InterfaceCollection
         {
             get
             {
-                if(components == null)
+                if(m_interfaceCollection == null)
                 {
                     var interfaces = new List<TInterface>();
                     foreach (var gameobj in m_gameobjects)
@@ -57,9 +60,9 @@ namespace UnityUtility
                             interfaces.Add(@interface);
                         }
                     }
-                    components = interfaces;
+                    m_interfaceCollection = interfaces;
                 }
-                return components;
+                return m_interfaceCollection;
             }
         }
     }
