@@ -29,6 +29,28 @@ namespace UnityUtility
         /// <summary> Vector3のzを上書きしたVec3を生成 </summary>
         public static Vector3 ReZ(this Vector3 vec3, float z) => new Vector3(vec3.x, vec3.y, z);
 
+        /// <summary>
+        /// Vector3のx要素の値を加算する
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public static Vector3 PlusX(this Vector3 source, float x) => new Vector3(source.x + x, source.y, source.z);
+        /// <summary>
+        /// Vector3のy要素の値を加算する
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static Vector3 PlusY(this Vector3 source, float y) => new Vector3(source.x, source.y + y, source.z);
+        /// <summary>
+        /// Vector3のz要素の値を加算する
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="z"></param>
+        /// <returns></returns>
+        public static Vector3 PlusZ(this Vector3 source, float z) => new Vector3(source.x, source.y, source.z + z);
+
         /// <summary> Vector2のxを上書きしたVec3を生成 </summary>
         public static Vector2 ReX(this Vector2 vec2, float x) => new Vector2(x, vec2.y);
         /// <summary> Vector2のyを上書きしたVec3を生成 </summary>

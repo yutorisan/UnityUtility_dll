@@ -19,6 +19,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\UnityUnility.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
     <Optimize>true</Optimize>
@@ -39,6 +40,7 @@
     <Compile Include="Extensions\UnityExtensions.cs" />
     <Compile Include="Extensions\VectorExtensions.cs" />
     <Compile Include="Classes\SerializeInterface.cs" />
+    <Compile Include="Classes\UniReadOnly.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
