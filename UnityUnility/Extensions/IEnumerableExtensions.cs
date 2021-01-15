@@ -16,7 +16,7 @@ namespace UnityUtility.Extensions
         /// <returns></returns>
         public static IEnumerable<T> Debug<T>(this IEnumerable<T> source, string label = null)
         {
-            var l = label ?? $"[{label}]";
+            var l = label != null ? $"[{label}]" : string.Empty;
             foreach (var item in source)
             {
                 UnityEngine.Debug.Log(l + item.ToString());

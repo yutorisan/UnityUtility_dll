@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace UnityUtility
 {
     public static class UnityExtensions
     {
-        public static Transform GetChildTransforms(this GameObject mono) => mono.transform;
-        public static Transform GetChildTransform(this GameObject mono, string name) => GetChildTransforms(mono).Find(name);
-        public static GameObject GetChildGameObject(this GameObject mono, string name) => GetChildTransform(mono, name).gameObject;
-
+        /// <summary>
+        /// このコンポーネントをアタッチしているGameObjectの子オブジェクトのTransformをすべて取得します。
+        /// 次の式に等しい：this.transform.Cast<Transform>()
+        /// </summary>
+        /// <param name="mono"></param>
+        /// <returns></returns>
+        public static IEnumerable<Transform> GetChildTransforms(this MonoBehaviour mono) => mono.transform.Cast<Transform>();
     }
 }

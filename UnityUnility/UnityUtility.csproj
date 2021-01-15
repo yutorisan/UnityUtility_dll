@@ -6,7 +6,7 @@
     <ProjectGuid>{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>UnityUtility</RootNamespace>
-    <AssemblyName>UnityUnility</AssemblyName>
+    <AssemblyName>UnityUtility</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <ReleaseVersion>0.2</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
@@ -19,7 +19,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\UnityUnility.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\UnityUtility.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
     <Optimize>true</Optimize>
@@ -62,10 +62,12 @@
     <Compile Include="Classes\UniReadOnly.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Structs\Angle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Classes\" />
+    <Folder Include="Structs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
