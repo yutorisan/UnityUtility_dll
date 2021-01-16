@@ -53,9 +53,13 @@ namespace UnityUtility
         /// <returns></returns>
         public static Angle FromRadian(int lap, float radian) => new Angle(lap, radian.ToDegree());
         /// <summary>
-        /// 角度0の新規インスタンスを取得します。
+        /// 角度0°の新規インスタンスを取得します。
         /// </summary>
         public static Angle Zero => new Angle(0);
+        /// <summary>
+        /// 角度360°の新規インスタンスを取得します。
+        /// </summary>
+        public static Angle Round => new Angle(360);
 
         public bool Equals(Angle other) => m_totalDegree == other.m_totalDegree;
 
