@@ -76,15 +76,17 @@ namespace UnityUtility
         public int CompareTo(Angle other) => m_totalDegree.CompareTo(other.m_totalDegree);
 
         /// <summary>
-        /// 正規化された角度(-180° < degree <= 180°)を取得します。
+        /// 正規化された角度(-180° &lt; degree &lt;= 180°)を取得します。
         /// </summary>
         /// <returns></returns>
         public Angle Normalize() => new Angle(NormalizedDegree);
+
         /// <summary>
-        /// 正の値で正規化された角度(0° <= degree < 360°)を取得します。
+        /// 正の値で正規化された角度(0° &lt;= degree &lt; 360°)を取得します。
         /// </summary>
         /// <returns></returns>
         public Angle PositiveNormalize() => new Angle(PositiveNormalizedDegree);
+
         /// <summary>
         /// 方向を反転させた角度を取得します。
         /// 例：90°→-270°, -450°→630°
@@ -119,6 +121,16 @@ namespace UnityUtility
                 }
             }
         }
+        /// <summary>
+        /// 符号を反転させた角度を取得します。
+        /// </summary>
+        /// <returns></returns>
+        public Angle SignReverse() => new Angle(-m_totalDegree);
+        /// <summary>
+        /// 角度の絶対値を取得します。
+        /// </summary>
+        /// <returns></returns>
+        public Angle Absolute() => IsPositive ? this : SignReverse();
 
         /// <summary>
         /// 正規化していない角度値を取得します。
@@ -129,7 +141,7 @@ namespace UnityUtility
         /// </summary>
         public float TotalRadian => TotalDegree.ToRadian();
         /// <summary>
-        /// 正規化された角度値(-180 < angle <= 180)を取得します。
+        /// 正規化された角度値(-180 &lt; angle &lt;= 180)を取得します。
         /// </summary>
         public float NormalizedDegree
         {
@@ -143,11 +155,11 @@ namespace UnityUtility
         }
 
         /// <summary>
-        /// 正規化された角度値をラジアン(-π < rad < π)で取得します。
+        /// 正規化された角度値をラジアン(-π &lt; rad &lt; π)で取得します。
         /// </summary>
         public float NormalizedRadian => NormalizedDegree.ToRadian();
         /// <summary>
-        /// 正規化された角度値(0 <= angle < 360)を取得します。
+        /// 正規化された角度値(0 &lt;= angle &lt; 360)を取得します。
         /// </summary>
         public float PositiveNormalizedDegree
         {
@@ -159,7 +171,7 @@ namespace UnityUtility
         }
 
         /// <summary>
-        /// 正規化された角度値をラジアン(0 <= rad < 2π)で取得します。
+        /// 正規化された角度値をラジアン(0 &lt;= rad &lt; 2π)で取得します。
         /// </summary>
         public float PositiveNormalizedRadian => PositiveNormalizedDegree.ToRadian();
         /// <summary>
