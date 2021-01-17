@@ -14,6 +14,12 @@ namespace UnityUtility
     /// <typeparam name="T">ラップする型</typeparam>
     public class UniReadOnly<T>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isOverwriteIgnoreMode">上書きしようとしたときに例外が発生するのではなく無視するモードの有効無効</param>
+        public UniReadOnly(bool isOverwriteIgnoreMode = false) => IsOverwriteIgnoreMode = isOverwriteIgnoreMode;
+
         ///// <summary>
         ///// 値を取得します。
         ///// </summary>
@@ -22,6 +28,10 @@ namespace UnityUtility
         /// 初期化されているかどうかを取得します。
         /// </summary>
         public bool IsInitialized { get; private set; }
+        /// <summary>
+        /// 上書きしようとしたときに例外が発生するのではなく無視するモードの有効無効
+        /// </summary>
+        public bool IsOverwriteIgnoreMode { get; }
 
         /// <summary>
         /// 値を初期化します。このメソッドは一度しか呼ぶことができません。
@@ -30,7 +40,11 @@ namespace UnityUtility
         /// <exception cref="AlreadyInitializedException">複数回初期化しようとしたときにスローされます。</exception>
         public void Initialize(T value)
         {
-            if (IsInitialized) throw new AlreadyInitializedException();
+            if (IsInitialized)
+            {
+                if (IsOverwriteIgnoreMode) return;
+                else throw new AlreadyInitializedException();
+            }
             IsInitialized = true;
             Value = value;
         }
