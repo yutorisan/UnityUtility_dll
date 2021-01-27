@@ -61,13 +61,14 @@
     <Compile Include="Classes\SerializeInterface.cs" />
     <Compile Include="Classes\UniReadOnly.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Structs\Angle.cs" />
+    <Compile Include="Linq\LinqExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Classes\" />
     <Folder Include="Structs\" />
+    <Folder Include="Linq\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
