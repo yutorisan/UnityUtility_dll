@@ -63,6 +63,7 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Structs\Angle.cs" />
     <Compile Include="Linq\LinqExtensions.cs" />
+    <Compile Include="Linq\DictionaryExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

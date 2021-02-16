@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityUtility.Linq
 {
@@ -63,5 +64,14 @@ namespace UnityUtility.Linq
                 yield return predicate(element) ? process(element) : element;
             }
         }
+        /// <summary>
+        /// シーケンスからnullを排除します。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> ExcludeNull<T>(this IEnumerable<T> source) => source.Where(n => n != null);
+
+
     }
 }
