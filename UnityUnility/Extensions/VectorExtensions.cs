@@ -121,6 +121,16 @@ namespace UnityUtility
             source.Scale(scale);
             return source;
         }
+
+        public static Vector2 AsX(this int value) => new Vector2(value, 0);
+        public static Vector2 AsX(this float value) => new Vector2(value, 0);
+        public static Vector2 AsXInt(this int value) => new Vector2Int(value, 0);
+        public static Vector2 AsY(this int value) => new Vector2(0, value);
+        public static Vector2 AsY(this float value) => new Vector2(0, value);
+        public static Vector2 AsYInt(this int value) => new Vector2Int(0, value);
+        public static Vector3 AsZ(this int value) => new Vector3(0, 0, value);
+        public static Vector3 AsZ(this float value) => new Vector3(0, 0, value);
+        public static Vector3 AsZInt(this int value) => new Vector3Int(0, 0, value);
     }
 
 }

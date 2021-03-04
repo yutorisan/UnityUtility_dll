@@ -62,14 +62,31 @@
     <Compile Include="Classes\UniReadOnly.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Structs\Angle.cs" />
-    <Compile Include="Linq\LinqExtensions.cs" />
-    <Compile Include="Linq\DictionaryExtensions.cs" />
+    <Compile Include="Classes\UniqueRandom.cs" />
+    <Compile Include="Linq\Operators\Debug.cs" />
+    <Compile Include="Linq\Operators\ProcessIf.cs" />
+    <Compile Include="Linq\Operators\ExcludeNull.cs" />
+    <Compile Include="Linq\Operators\Combine.cs" />
+    <Compile Include="Linq\Operators\Do.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionaryWhere.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionarySelect.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\ToDictionary.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionaryZip.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionaryCombine.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\ExcludeNullValue.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionaryMembers\Keys.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionaryMembers\Values.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\DictionaryMembers\ContainsKey.cs" />
+    <Compile Include="Linq\KeyValuePairOperators\KeyMapEquals.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Classes\" />
     <Folder Include="Structs\" />
     <Folder Include="Linq\" />
+    <Folder Include="Linq\Operators\" />
+    <Folder Include="Linq\KeyValuePairOperators\" />
+    <Folder Include="Linq\KeyValuePairOperators\DictionaryMembers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

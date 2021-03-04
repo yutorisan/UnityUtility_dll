@@ -199,6 +199,14 @@ namespace UnityUtility
         /// </summary>
         public bool IsPositive => m_totalDegree >= 0;
 
+        public float Cos => Mathf.Cos(TotalRadian);
+        public float Sin => Mathf.Sin(TotalRadian);
+        public float Tan => Mathf.Tan(TotalRadian);
+        /// <summary>
+        /// この角度における単位円上の座標を取得します。
+        /// </summary>
+        public Vector2 Point => new Vector2(Cos, Sin);
+
         /// <exception cref="NotFiniteNumberException"/>
         public static Angle operator +(Angle left, Angle right) => new Angle(ArithmeticCheck(() => left.m_totalDegree + right.m_totalDegree));
         /// <exception cref="NotFiniteNumberException"/>
@@ -207,6 +215,8 @@ namespace UnityUtility
         public static Angle operator *(Angle left, float right) => new Angle(ArithmeticCheck(() => left.m_totalDegree * right));
         /// <exception cref="NotFiniteNumberException"/>
         public static Angle operator /(Angle left, float right) => new Angle(ArithmeticCheck(() => left.m_totalDegree / right));
+        public static float operator /(Angle left, Angle right) => ArithmeticCheck(() => left.m_totalDegree / right.m_totalDegree);
+        public static Angle operator -(Angle angle) => angle.SignReverse();
         public static bool operator ==(Angle left, Angle right) => left.m_totalDegree == right.m_totalDegree;
         public static bool operator !=(Angle left, Angle right) => left.m_totalDegree != right.m_totalDegree;
         public static bool operator >(Angle left, Angle right) => left.m_totalDegree > right.m_totalDegree;
