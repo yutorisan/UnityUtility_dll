@@ -78,6 +78,9 @@
     <Compile Include="Linq\KeyValuePairOperators\DictionaryMembers\Values.cs" />
     <Compile Include="Linq\KeyValuePairOperators\DictionaryMembers\ContainsKey.cs" />
     <Compile Include="Linq\KeyValuePairOperators\KeyMapEquals.cs" />
+    <Compile Include="Linq\Operators\FirstOrAny.cs" />
+    <Compile Include="Linq\Operators\Cache.cs" />
+    <Compile Include="Linq\Operators\Cache2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
