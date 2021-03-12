@@ -65,6 +65,14 @@ namespace UnityUtility
         /// </summary>
         public static Angle Zero => new Angle(0);
         /// <summary>
+        /// 角度90°（直角）の新規インスタンスを取得します。
+        /// </summary>
+        public static Angle Right => new Angle(90);
+        /// <summary>
+        /// 角度180°の新規インスタンスを取得します。
+        /// </summary>
+        public static Angle Half => new Angle(180);
+        /// <summary>
         /// 角度360°の新規インスタンスを取得します。
         /// </summary>
         public static Angle Round => new Angle(360);

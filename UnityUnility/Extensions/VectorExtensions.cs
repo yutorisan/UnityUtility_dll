@@ -9,11 +9,11 @@ namespace UnityUtility
     public static class VectorExtensions {
 
         /// <summary> Vector2にxを加えてVec3に </summary>
-        public static Vector3 AddX(this Vector2 vec2, float x) => new Vector3(x, vec2.x, vec2.y);
+        public static Vector3 AddX(this Vector2 vec2, float x = default) => new Vector3(x, vec2.x, vec2.y);
         /// <summary> Vector2にyを加えてVec3に </summary>
-        public static Vector3 AddY(this Vector2 vec2, float y) => new Vector3(vec2.x, y, vec2.y);
+        public static Vector3 AddY(this Vector2 vec2, float y = default) => new Vector3(vec2.x, y, vec2.y);
         /// <summary> Vector2にzを加えてVec3に </summary>
-        public static Vector3 AddZ(this Vector2 vec2, float z) => new Vector3(vec2.x, vec2.y, z);
+        public static Vector3 AddZ(this Vector2 vec2, float z = default) => new Vector3(vec2.x, vec2.y, z);
 
         /// <summary> Vector3からxを除いてVec2に </summary>
         public static Vector2 DisX(this Vector3 vec3) => new Vector2(vec3.y, vec3.z);
