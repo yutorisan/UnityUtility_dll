@@ -81,6 +81,7 @@
     <Compile Include="Linq\Operators\FirstOrAny.cs" />
     <Compile Include="Linq\Operators\Cache.cs" />
     <Compile Include="Linq\Operators\Cache2.cs" />
+    <Compile Include="Extensions\Deconstructs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
