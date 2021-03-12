@@ -82,6 +82,9 @@
     <Compile Include="Linq\Operators\Cache.cs" />
     <Compile Include="Linq\Operators\Cache2.cs" />
     <Compile Include="Extensions\Deconstructs.cs" />
+    <Compile Include="Enums\LeftRight.cs" />
+    <Compile Include="Enums\UpDown.cs" />
+    <Compile Include="Enums\Direction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -91,6 +94,7 @@
     <Folder Include="Linq\Operators\" />
     <Folder Include="Linq\KeyValuePairOperators\" />
     <Folder Include="Linq\KeyValuePairOperators\DictionaryMembers\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
