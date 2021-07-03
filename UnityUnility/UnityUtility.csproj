@@ -20,19 +20,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\UnityUtility.xml</DocumentationFile>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEditor">
       <HintPath>..\..\..\..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -53,6 +52,12 @@
       <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="UniRx">
+      <HintPath>..\..\..\MedalPusherGame\Library\ScriptAssemblies\UniRx.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\..\Applications\2021.1.2f1\PlaybackEngines\WindowsStandaloneSupport\Variations\win64_nondevelopment_mono\Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\MathExtensions.cs" />
@@ -79,12 +84,22 @@
     <Compile Include="Linq\KeyValuePairOperators\DictionaryMembers\ContainsKey.cs" />
     <Compile Include="Linq\KeyValuePairOperators\KeyMapEquals.cs" />
     <Compile Include="Linq\Operators\FirstOrAny.cs" />
-    <Compile Include="Linq\Operators\Cache.cs" />
-    <Compile Include="Linq\Operators\Cache2.cs" />
     <Compile Include="Extensions\Deconstructs.cs" />
     <Compile Include="Enums\LeftRight.cs" />
     <Compile Include="Enums\UpDown.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Linq\Operators\WithIndex.cs" />
+    <Compile Include="Linq\Operators\MaxMinBy.cs" />
+    <Compile Include="Classes\Collections\Queue\IQueue.cs" />
+    <Compile Include="Classes\Collections\Queue\Queue.cs" />
+    <Compile Include="Linq\Core\WithIndexValue.cs" />
+    <Compile Include="Linq\Core\WithIndexEnumerable.cs" />
+    <Compile Include="Classes\Collections\Queue\ReactiveQueue.cs" />
+    <Compile Include="Classes\Collections\Queue\FixedCapacityQueue.cs" />
+    <Compile Include="Classes\Collections\Queue\FixedCapacityReactiveQueue.cs" />
+    <Compile Include="Classes\Collections\Queue\CapacityOverQueueBehaviour.cs" />
+    <Compile Include="Classes\Collections\Core\CapacityOverException.cs" />
+    <Compile Include="Classes\Collections\Queue\Core\FixedCapacityQueueBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -95,6 +110,11 @@
     <Folder Include="Linq\KeyValuePairOperators\" />
     <Folder Include="Linq\KeyValuePairOperators\DictionaryMembers\" />
     <Folder Include="Enums\" />
+    <Folder Include="Classes\Collections\" />
+    <Folder Include="Classes\Collections\Queue\" />
+    <Folder Include="Linq\Core\" />
+    <Folder Include="Classes\Collections\Core\" />
+    <Folder Include="Classes\Collections\Queue\Core\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
