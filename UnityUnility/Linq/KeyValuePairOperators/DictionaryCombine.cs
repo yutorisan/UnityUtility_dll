@@ -23,8 +23,8 @@ namespace UnityUtility.Linq
             (this IEnumerable<KeyValuePair<TKey, TSourceValue1>> source1,
              IEnumerable<KeyValuePair<TKey, TSourceValue2>> source2,
              Func<TSourceValue1, TSourceValue2, TResultValue> resultSelector,
-             Func<TSourceValue1> defaultValue1Selector,
-             Func<TSourceValue2> defaultValue2Selector)
+             Func<TSourceValue2, TSourceValue1> defaultValue1Selector,
+             Func<TSourceValue1, TSourceValue2> defaultValue2Selector)
         {
             if (source1 is null)
             {
@@ -55,7 +55,9 @@ namespace UnityUtility.Linq
             {
                 TKey key1 = element1.Key;
                 TSourceValue1 value1 = element1.Value;
-                TSourceValue2 value2 = source2.FirstOrAny(kvp => kvp.Key.Equals(key1), new KeyValuePair<TKey, TSourceValue2>(default, defaultValue2Selector())).Value;
+                TSourceValue2 value2 = source2.FirstOrAny(
+                    kvp => kvp.Key.Equals(key1),
+                    new KeyValuePair<TKey, TSourceValue2>(default, defaultValue2Selector(value1))).Value;
 
                 yield return new KeyValuePair<TKey, TResultValue>(
                     key1,
@@ -63,14 +65,13 @@ namespace UnityUtility.Linq
             }
 
             //次にsource2だけに存在する要素の精査
-            foreach (var element2 in source2)
+            foreach (var element2 in source2.Where(ele2 => !source1.ContainsKey(ele2.Key)) )
             {
-                if (!source1.ContainsKey(element2.Key))
-                {
-                    yield return new KeyValuePair<TKey, TResultValue>(
-                        element2.Key,
-                        resultSelector(defaultValue1Selector(), element2.Value));
-                }
+                TKey key2 = element2.Key;
+                TSourceValue2 value2 = element2.Value;
+                yield return new KeyValuePair<TKey, TResultValue>(
+                    key2,
+                    resultSelector(defaultValue1Selector(value2), value2));
             }
         }
 
@@ -90,7 +91,7 @@ namespace UnityUtility.Linq
             (this IEnumerable<KeyValuePair<TKey, TSourceValue1>> source1,
              IEnumerable<KeyValuePair<TKey, TSourceValue2>> source2,
              Func<TSourceValue1, TSourceValue2, TResultValue> resultSelector) =>
-                source1.DictionaryCombine(source2, resultSelector, () => default, () => default);
+                source1.DictionaryCombine(source2, resultSelector, _ => default, _ => default);
 
     }
 }
