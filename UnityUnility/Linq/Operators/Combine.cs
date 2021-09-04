@@ -34,6 +34,7 @@ namespace UnityUtility.Linq
                 TSource2 element2;
                 bool still1 = enumerator1.MoveNext();
                 bool still2 = enumerator2.MoveNext();
+                if (!still1 && !still2) yield break;
                 element1 = still1 ? enumerator1.Current : default;
                 element2 = still2 ? enumerator2.Current : default;
 
