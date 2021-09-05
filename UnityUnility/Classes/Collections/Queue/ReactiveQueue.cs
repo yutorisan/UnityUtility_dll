@@ -40,6 +40,14 @@ namespace UnityUtility.Collections
             enqueueSubject?.OnNext(value);
             //コレクションに要素が追加されたことを通知
             addSubject?.OnNext(new CollectionAddEvent<T>(addIndex, value));
+            //Moveが購読されている場合は、Enqueueによってずれた要素を１個１個通知
+            if(moveSubject != null)
+            {
+                for (int i = 1; i < Count; i++)
+                {
+                    moveSubject.OnNext(new CollectionMoveEvent<T>(i - 1, i, queue.ElementAt(i)));
+                }
+            }
             //コレクションの要素数が変更されたことを通知
             countSubject?.OnNext(addIndex + 1);
         }
