@@ -10,7 +10,7 @@ namespace UnityUtility.Collections
     /// 固定長の<see cref="ReactiveQueue{T}"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class FixedCapacityReactiveQueue<T> : FixedCapacityQueueBase<T>, IReactiveQueue<T>
+    public class FixedCapacityReactiveQueue<T> : FixedCapacityQueue<T>, IReactiveQueue<T>
     {
         /// <summary>
         /// キャパシティを指定してインスタンスを新規作成します
