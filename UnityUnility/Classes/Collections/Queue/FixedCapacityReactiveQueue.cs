@@ -28,7 +28,7 @@ namespace UnityUtility.Collections
         public FixedCapacityReactiveQueue(IReadOnlyCollection<T> source, CapacityOverQueueBehaviour behaviour = CapacityOverQueueBehaviour.ThrowException)
             : base(new ReactiveQueue<T>(source), source.Count, behaviour) { }
 
-        public T this[int index] => (innerQueue as IReactiveQueue<T>)[index];
+        T IReadOnlyReactiveCollection<T>.this[int index] => (innerQueue as IReactiveQueue<T>)[index];
 
         public IObservable<T> ObserveDequeue() => (innerQueue as IReactiveQueue<T>).ObserveDequeue();
         public IObservable<T> ObserveEnqueue() => (innerQueue as IReactiveQueue<T>).ObserveEnqueue();

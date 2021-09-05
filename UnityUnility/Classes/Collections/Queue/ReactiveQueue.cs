@@ -75,7 +75,13 @@ namespace UnityUtility.Collections
             return value;
         }
 
-        public T this[int index]
+        public override void Clear()
+        {
+            queue.Clear();
+            resetSubject.OnNext(Unit.Default);
+        }
+
+        T IReadOnlyReactiveCollection<T>.this[int index]
         {
             get
             {
