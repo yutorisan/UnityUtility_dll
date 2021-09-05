@@ -19,6 +19,7 @@ namespace UnityUtility.Collections
         public virtual void Enqueue(T value) => queue.Enqueue(value);
         public virtual T Dequeue() => queue.Dequeue();
         public virtual T Peek() => queue.Peek();
+        public virtual void Clear() => queue.Clear();
 
         public int Count => queue.Count;
 

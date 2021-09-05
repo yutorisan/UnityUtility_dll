@@ -20,5 +20,9 @@ namespace UnityUtility.Collections
         /// </summary>
         /// <returns></returns>
         T Peek();
+        /// <summary>
+        /// 要素をすべて削除します。
+        /// </summary>
+        void Clear();
     }
 }
