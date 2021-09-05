@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace UnityUtility.Classes
 {
+    /// <summary>
+    /// 特定の範囲内で重複しないランダムな数値を出力するモジュール
+    /// </summary>
     public class UniqueRandom
     {
         private readonly int m_min, m_max;

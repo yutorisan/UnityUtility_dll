@@ -17,7 +17,6 @@ namespace UnityUtility.Linq
         /// <param name="source1"></param>
         /// <param name="source2"></param>
         /// <param name="resultSelector"></param>
-        /// <exception cref="InvalidOperationException">キーマップが同一ではない場合にスローされます。</exception>
         /// <returns></returns>
         public static IEnumerable<KeyValuePair<TKey, TResultValue>> DictionaryZip<TKey, TSourceValue1, TSourceValue2, TResultValue>
             (this IEnumerable<KeyValuePair<TKey, TSourceValue1>> source1,

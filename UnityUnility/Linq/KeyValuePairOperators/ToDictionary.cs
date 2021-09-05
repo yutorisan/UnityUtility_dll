@@ -7,7 +7,7 @@ namespace UnityUtility.Linq
     public static partial class LinqExtensions
     {
         /// <summary>
-        /// 辞書型のIEnumerableインターフェイスを直接Dictionary具象クラスに変換します。
+        /// 辞書型のIEnumerableインターフェイスから直接Dictionary具象クラスを生成します。
         /// </summary>
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>

@@ -99,7 +99,6 @@
     <Compile Include="Classes\Collections\Queue\FixedCapacityReactiveQueue.cs" />
     <Compile Include="Classes\Collections\Queue\CapacityOverQueueBehaviour.cs" />
     <Compile Include="Classes\Collections\Core\CapacityOverException.cs" />
-    <Compile Include="Classes\Collections\Queue\Core\FixedCapacityQueueBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -114,7 +113,6 @@
     <Folder Include="Classes\Collections\Queue\" />
     <Folder Include="Linq\Core\" />
     <Folder Include="Classes\Collections\Core\" />
-    <Folder Include="Classes\Collections\Queue\Core\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
