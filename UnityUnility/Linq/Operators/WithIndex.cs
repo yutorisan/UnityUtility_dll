@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityUtility.Linq.Core;
+using UnityUtility.Linq.Modules;
 
 namespace UnityUtility.Linq
 {

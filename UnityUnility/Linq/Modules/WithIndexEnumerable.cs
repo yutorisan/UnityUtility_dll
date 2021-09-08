@@ -2,8 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace UnityUtility.Linq.Core
+namespace UnityUtility.Linq.Modules
 {
+    /// <summary>
+    /// 要素のインデックス情報が取得できる<see cref="IEnumerable{T}"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IWithIndexEnumerable<T> : IEnumerable<WithIndex<T>>
     {
         //なし

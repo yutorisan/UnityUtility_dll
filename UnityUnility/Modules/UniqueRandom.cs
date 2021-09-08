@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace UnityUtility.Classes
+namespace UnityUtility.Modules
 {
     /// <summary>
     /// 特定の範囲内で重複しないランダムな数値を出力するモジュール

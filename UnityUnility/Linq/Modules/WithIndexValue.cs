@@ -1,5 +1,5 @@
 ﻿using System;
-namespace UnityUtility.Linq.Core
+namespace UnityUtility.Linq.Modules
 {
     /// <summary>
     /// 値とインデックス番号のペア

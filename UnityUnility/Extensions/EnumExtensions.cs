@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace UnityUtility
+namespace UnityUtility.Extensions
 {
     public static class Enum
     {

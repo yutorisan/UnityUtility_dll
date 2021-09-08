@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Immutable;
 using UnityEngine;
 
-namespace UnityUtility
+namespace UnityUtility.Modules
 {
     /// <summary>
     /// 一度しか初期化できない値です。

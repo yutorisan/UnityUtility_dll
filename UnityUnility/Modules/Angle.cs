@@ -3,7 +3,7 @@ using System.Security.AccessControl;
 using System.Threading;
 using UnityEngine;
 
-namespace UnityUtility
+namespace UnityUtility.Modules
 {
     /// <summary>
     /// 角度

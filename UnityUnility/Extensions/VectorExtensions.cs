@@ -2,7 +2,7 @@
 using static UnityEngine.Mathf;
 
 
-namespace UnityUtility
+namespace UnityUtility.Extensions
 {
 
     /// <summary> Vectorに対する拡張メソッド群 </summary>

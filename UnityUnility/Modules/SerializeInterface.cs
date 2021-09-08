@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Unity;
 
-namespace UnityUtility
+namespace UnityUtility.Modules
 {
     [Serializable]
     public class SerializeInterface<TInterface>
