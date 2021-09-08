@@ -98,6 +98,7 @@
     <Compile Include="Linq\Operators\DictionaryOperators\ExcludeNullValue.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\KeyMapEquals.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\ToDictionary.cs" />
+    <Compile Include="Linq\Factories\Random.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -109,6 +110,7 @@
     <Folder Include="Modules\Collections\Queue\" />
     <Folder Include="Modules\Collections\Core\" />
     <Folder Include="Linq\Operators\DictionaryOperators\" />
+    <Folder Include="Linq\Factories\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
