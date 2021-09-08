@@ -22,7 +22,7 @@ namespace UnityUtility.Collections
     }
     public interface IReactiveQueue<T> : IReadOnlyReactiveQueue<T>, IQueue<T>, IReadOnlyReactiveCollection<T>
     {
-
+        // なし
     }
     public class ReactiveQueue<T> : Queue<T>, IReactiveQueue<T>
     {

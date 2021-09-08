@@ -2,7 +2,7 @@
 namespace UnityUtility.Collections
 {
     /// <summary>
-    /// キャパオーバー時の挙動
+    /// キャパオーバー時の<see cref="FixedCapacityQueue{T}"/>挙動
     /// </summary>
     public enum CapacityOverQueueBehaviour
     {
