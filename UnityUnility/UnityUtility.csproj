@@ -78,15 +78,8 @@
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Linq\Operators\WithIndex.cs" />
     <Compile Include="Linq\Operators\MaxMinBy.cs" />
-    <Compile Include="Modules\Collections\Queue\IQueue.cs" />
-    <Compile Include="Modules\Collections\Queue\Queue.cs" />
     <Compile Include="Linq\Modules\WithIndexValue.cs" />
     <Compile Include="Linq\Modules\WithIndexEnumerable.cs" />
-    <Compile Include="Modules\Collections\Queue\ReactiveQueue.cs" />
-    <Compile Include="Modules\Collections\Queue\FixedCapacityQueue.cs" />
-    <Compile Include="Modules\Collections\Queue\FixedCapacityReactiveQueue.cs" />
-    <Compile Include="Modules\Collections\Queue\CapacityOverQueueBehaviour.cs" />
-    <Compile Include="Modules\Collections\Core\CapacityOverException.cs" />
     <Compile Include="Modules\Angle.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryCombine.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\ContainsKey.cs" />
@@ -99,6 +92,13 @@
     <Compile Include="Linq\Operators\DictionaryOperators\KeyMapEquals.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\ToDictionary.cs" />
     <Compile Include="Linq\Factories\Random.cs" />
+    <Compile Include="Collections\Core\CapacityOverException.cs" />
+    <Compile Include="Collections\Queue\CapacityOverQueueBehaviour.cs" />
+    <Compile Include="Collections\Queue\FixedCapacityQueue.cs" />
+    <Compile Include="Collections\Queue\FixedCapacityReactiveQueue.cs" />
+    <Compile Include="Collections\Queue\IQueue.cs" />
+    <Compile Include="Collections\Queue\Queue.cs" />
+    <Compile Include="Collections\Queue\ReactiveQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
@@ -106,11 +106,9 @@
     <Folder Include="Linq\" />
     <Folder Include="Linq\Operators\" />
     <Folder Include="Enums\" />
-    <Folder Include="Modules\Collections\" />
-    <Folder Include="Modules\Collections\Queue\" />
-    <Folder Include="Modules\Collections\Core\" />
     <Folder Include="Linq\Operators\DictionaryOperators\" />
     <Folder Include="Linq\Factories\" />
+    <Folder Include="Collections\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
