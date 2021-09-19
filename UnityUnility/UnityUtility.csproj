@@ -30,9 +30,6 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="UnityEditor">
-      <HintPath>..\..\..\..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEditor.dll</HintPath>
-    </Reference>
     <Reference Include="System.Buffers">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -64,7 +61,6 @@
     <Compile Include="Extensions\VectorExtensions.cs" />
     <Compile Include="Modules\SerializeInterface.cs" />
     <Compile Include="Modules\UniReadOnly.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Modules\UniqueRandom.cs" />
     <Compile Include="Linq\Operators\Debug.cs" />
     <Compile Include="Linq\Operators\ProcessIf.cs" />
@@ -99,6 +95,7 @@
     <Compile Include="Collections\Queue\IQueue.cs" />
     <Compile Include="Collections\Queue\Queue.cs" />
     <Compile Include="Collections\Queue\ReactiveQueue.cs" />
+    <Compile Include="Enums\EnumUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

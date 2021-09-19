@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.AccessControl;
-using System.Threading;
 using UnityEngine;
 
 namespace UnityUtility.Modules

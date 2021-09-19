@@ -1,5 +1,4 @@
-﻿using System;
-namespace UnityUtility.Enums
+﻿namespace UnityUtility.Enums
 {
     /// <summary>
     /// 上下左右
