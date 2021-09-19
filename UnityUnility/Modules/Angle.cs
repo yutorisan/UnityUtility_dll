@@ -73,6 +73,10 @@ namespace UnityUtility.Modules
         /// </summary>
         public static Angle Half => new Angle(180);
         /// <summary>
+        /// 角度270°の新規インスタンスを取得します。
+        /// </summary>
+        public static Angle Left => new Angle(270);
+        /// <summary>
         /// 角度360°の新規インスタンスを取得します。
         /// </summary>
         public static Angle Round => new Angle(360);
@@ -223,7 +227,6 @@ namespace UnityUtility.Modules
         public static Angle operator *(Angle left, float right) => new Angle(ArithmeticCheck(() => left.m_totalDegree * right));
         /// <exception cref="NotFiniteNumberException"/>
         public static Angle operator /(Angle left, float right) => new Angle(ArithmeticCheck(() => left.m_totalDegree / right));
-        public static float operator /(Angle left, Angle right) => ArithmeticCheck(() => left.m_totalDegree / right.m_totalDegree);
         public static Angle operator -(Angle angle) => angle.SignReverse();
         public static bool operator ==(Angle left, Angle right) => left.m_totalDegree == right.m_totalDegree;
         public static bool operator !=(Angle left, Angle right) => left.m_totalDegree != right.m_totalDegree;
