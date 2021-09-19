@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UnityUtility</RootNamespace>
+    <AssemblyName>UnityUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ReleaseVersion>0.2</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\UnityUtility.xml</DocumentationFile>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="UniRx">
+      <HintPath>..\..\..\MedalPusherGame\Library\ScriptAssemblies\UniRx.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\..\Applications\2021.1.2f1\PlaybackEngines\WindowsStandaloneSupport\Variations\win64_nondevelopment_mono\Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\UnityExtensions.cs" />
+    <Compile Include="Extensions\VectorExtensions.cs" />
+    <Compile Include="Modules\SerializeInterface.cs" />
+    <Compile Include="Modules\UniReadOnly.cs" />
+    <Compile Include="Modules\UniqueRandom.cs" />
+    <Compile Include="Linq\Operators\Debug.cs" />
+    <Compile Include="Linq\Operators\ProcessIf.cs" />
+    <Compile Include="Linq\Operators\ExcludeNull.cs" />
+    <Compile Include="Linq\Operators\Combine.cs" />
+    <Compile Include="Linq\Operators\Do.cs" />
+    <Compile Include="Linq\Operators\FirstOrAny.cs" />
+    <Compile Include="Extensions\Deconstructs.cs" />
+    <Compile Include="Enums\LeftRight.cs" />
+    <Compile Include="Enums\UpDown.cs" />
+    <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Linq\Operators\WithIndex.cs" />
+    <Compile Include="Linq\Operators\MaxMinBy.cs" />
+    <Compile Include="Linq\Modules\WithIndexValue.cs" />
+    <Compile Include="Linq\Modules\WithIndexEnumerable.cs" />
+    <Compile Include="Modules\Angle.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionaryCombine.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\ContainsKey.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\Keys.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\Values.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionarySelect.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionaryWhere.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\DictionaryZip.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\ExcludeNullValue.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\KeyMapEquals.cs" />
+    <Compile Include="Linq\Operators\DictionaryOperators\ToDictionary.cs" />
+    <Compile Include="Linq\Factories\Random.cs" />
+    <Compile Include="Collections\Core\CapacityOverException.cs" />
+    <Compile Include="Collections\Queue\CapacityOverQueueBehaviour.cs" />
+    <Compile Include="Collections\Queue\FixedCapacityQueue.cs" />
+    <Compile Include="Collections\Queue\FixedCapacityReactiveQueue.cs" />
+    <Compile Include="Collections\Queue\IQueue.cs" />
+    <Compile Include="Collections\Queue\Queue.cs" />
+    <Compile Include="Collections\Queue\ReactiveQueue.cs" />
+    <Compile Include="Enums\EnumUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Modules\" />
+    <Folder Include="Linq\" />
+    <Folder Include="Linq\Operators\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Linq\Operators\DictionaryOperators\" />
+    <Folder Include="Linq\Factories\" />
+    <Folder Include="Collections\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
