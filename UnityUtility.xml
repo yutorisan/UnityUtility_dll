@@ -1,0 +1,862 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UnityUtility</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:UnityUtility.Extensions.UnityExtensions.GetChildTransforms(UnityEngine.MonoBehaviour)" -->
+        <member name="T:UnityUtility.Extensions.VectorExtensions">
+            <summary> Vectorに対する拡張メソッド群 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.AddX(UnityEngine.Vector2,System.Single)">
+            <summary> Vector2にxを加えてVec3に </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.AddY(UnityEngine.Vector2,System.Single)">
+            <summary> Vector2にyを加えてVec3に </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.AddZ(UnityEngine.Vector2,System.Single)">
+            <summary> Vector2にzを加えてVec3に </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisX(UnityEngine.Vector3)">
+            <summary> Vector3からxを除いてVec2に </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisY(UnityEngine.Vector3)">
+            <summary> Vector3からyを除いてVec2に </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisZ(UnityEngine.Vector3)">
+            <summary> Vector3からzを除いてVec2に </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ReX(UnityEngine.Vector3,System.Single)">
+            <summary> Vector3のxを上書きしたVec3を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ReY(UnityEngine.Vector3,System.Single)">
+            <summary> Vector3のyを上書きしたVec3を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ReZ(UnityEngine.Vector3,System.Single)">
+            <summary> Vector3のzを上書きしたVec3を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.PlusX(UnityEngine.Vector3,System.Single)">
+            <summary>
+            Vector3のx要素の値を加算する
+            </summary>
+            <param name="source"></param>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.PlusY(UnityEngine.Vector3,System.Single)">
+            <summary>
+            Vector3のy要素の値を加算する
+            </summary>
+            <param name="source"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.PlusZ(UnityEngine.Vector3,System.Single)">
+            <summary>
+            Vector3のz要素の値を加算する
+            </summary>
+            <param name="source"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ReX(UnityEngine.Vector2,System.Single)">
+            <summary> Vector2のxを上書きしたVec3を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ReY(UnityEngine.Vector2,System.Single)">
+            <summary> Vector2のyを上書きしたVec3を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Clamped(UnityEngine.Vector2,System.Single,System.Single)">
+            <summary> x,yをそれぞれClamp </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Theta(UnityEngine.Vector2)">
+            <summary> x軸とのなす角[rad]([-π,π]) </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Resized(UnityEngine.Vector2,System.Single)">
+            <summary>
+            同じ方向で違う長さのVec2
+            - vec2≒0の場合、方向が判別できないためlengthにかかわらず(0,0)を返す
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisN(System.Nullable{UnityEngine.Vector3},UnityEngine.Vector3)">
+            <summary> nullだったらdefaultValueを返す </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisN(System.Nullable{UnityEngine.Vector2},UnityEngine.Vector2)">
+            <summary> nullだったらdefaultValueを返す </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisN0(System.Nullable{UnityEngine.Vector3})">
+            <summary> nullだったら(0,0,0)を返す </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.DisN0(System.Nullable{UnityEngine.Vector2})">
+            <summary> nullだったら(0,0)を返す </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Select(UnityEngine.Vector3,System.Func{System.Single,System.Single})">
+            <summary> x,y,zそれぞれにprocを適用したVec3(x',y',z')を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Select(UnityEngine.Vector3,UnityEngine.Vector3,System.Func{System.Single,System.Single,System.Single})">
+            <summary> x,y,zそれぞれにproc(x, x2)を適用したVec3(x',y',z')を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Select(UnityEngine.Vector2,System.Func{System.Single,System.Single})">
+            <summary> x,yそれぞれにprocを適用したVec3(x',y')を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.Select(UnityEngine.Vector2,UnityEngine.Vector3,System.Func{System.Single,System.Single,System.Single})">
+            <summary> x,yそれぞれにproc(x, x2)を適用したVec3(x',y')を生成 </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ElemProduct(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary> a=(x0,y0,z0), b=(x1,y1,z1)に対してret=(x0*x1,y0*y1,z0*z1) </summary>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ScaleEx(UnityEngine.Vector3,System.Single)">
+            <summary>
+            Vector3を全方向に等倍する
+            </summary>
+            <param name="source"></param>
+            <param name="multiple"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.VectorExtensions.ScaleEx(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Vector3を倍率する
+            </summary>
+            <param name="source"></param>
+            <param name="scale"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.Enum.All``1">
+            <summary>
+            列挙型のすべてのメンバを取得します。
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.Enum.Count``1">
+            <summary>
+            列挙型のメンバ総数を取得します。
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Extensions.Enum.Random``1">
+            <summary>
+            列挙体のメンバの中からランダムに1つ返します。
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:UnityUtility.Modules.UniReadOnly`1">
+            <summary>
+            一度しか初期化できない値です。
+            readonlyキーワードの代わりに使用します。
+            </summary>
+            <typeparam name="T">ラップする型</typeparam>
+        </member>
+        <member name="M:UnityUtility.Modules.UniReadOnly`1.#ctor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="isOverwriteIgnoreMode">上書きしようとしたときに例外が発生するのではなく無視するモードの有効無効</param>
+        </member>
+        <member name="P:UnityUtility.Modules.UniReadOnly`1.IsInitialized">
+            <summary>
+            初期化されているかどうかを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.UniReadOnly`1.IsOverwriteIgnoreMode">
+            <summary>
+            上書きしようとしたときに例外が発生するのではなく無視するモードの有効無効
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Modules.UniReadOnly`1.Initialize(`0)">
+            <summary>
+            値を初期化します。このメソッドは一度しか呼ぶことができません。
+            </summary>
+            <param name="value">初期化する値</param>
+            <exception cref="T:UnityUtility.Modules.AlreadyInitializedException">複数回初期化しようとしたときにスローされます。</exception>
+        </member>
+        <member name="T:UnityUtility.Modules.UniqueRandom">
+            <summary>
+            特定の範囲内で重複しないランダムな数値を出力するモジュール
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Modules.UniqueRandom.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            出力範囲を指定して新規インスタンスを作成します
+            </summary>
+            <param name="min">出力する最小値</param>
+            <param name="max">出力する最大値（この値を含まない）</param>
+        </member>
+        <member name="M:UnityUtility.Modules.UniqueRandom.Pick">
+            <summary>
+            重複しない値をランダムで取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Modules.UniqueRandom.Reset">
+            <summary>
+            今までに出現した値の記憶を破棄します
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.UniqueRandom.IsAutoReset">
+            <summary>
+            すべての値が出現したらリセットするか
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Modules.Angle">
+            <summary>
+            角度
+            </summary>
+        </member>
+        <member name="F:UnityUtility.Modules.Angle.m_totalDegree">
+            <summary>
+            正規化していない角度の累積値
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.#ctor(System.Single)">
+            <summary>
+            角度を度数法で指定して、新規インスタンスを作成します。
+            </summary>
+            <param name="angle">度数法の角度</param>
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.#ctor(System.Int32,System.Single)">
+            <summary>
+            周回数と角度を指定して、新規インスタンスを作成します。
+            </summary>
+            <param name="lap">周回数</param>
+            <param name="angle">度数法の角度</param>
+            <exception cref="T:System.NotFiniteNumberException"/>
+            <exception cref="T:System.OverflowException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.FromDegree(System.Single)">
+            <summary>
+            度数法の値を使用して新規インスタンスを取得します。
+            </summary>
+            <param name="degree">度数法の角度(°)</param>
+            <returns></returns>
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.FromDegree(System.Int32,System.Single)">
+            <summary>
+            周回数と角度を指定して、新規インスタンスを取得します。
+            </summary>
+            <param name="lap">周回数</param>
+            <param name="degree">度数法の角度(°)</param>
+            <returns></returns>
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.FromRadian(System.Single)">
+            <summary>
+            弧度法の値を使用して新規インスタンスを取得します。
+            </summary>
+            <param name="radian">弧度法の角度(rad)</param>
+            <returns></returns>
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.FromRadian(System.Int32,System.Single)">
+            <summary>
+            周回数と角度を指定して、新規インスタンスを取得します。
+            </summary>
+            <param name="lap">周回数</param>
+            <param name="radian">弧度法の角度(rad)</param>
+            <returns></returns>
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Zero">
+            <summary>
+            角度0°の新規インスタンスを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Right">
+            <summary>
+            角度90°（直角）の新規インスタンスを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Half">
+            <summary>
+            角度180°の新規インスタンスを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Left">
+            <summary>
+            角度270°の新規インスタンスを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Round">
+            <summary>
+            角度360°の新規インスタンスを取得します。
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.Normalize">
+            <summary>
+            正規化された角度(-180° &lt; degree &lt;= 180°)を取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.PositiveNormalize">
+            <summary>
+            正の値で正規化された角度(0° &lt;= degree &lt; 360°)を取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.Reverse">
+            <summary>
+            方向を反転させた角度を取得します。
+            例：90°→-270°, -450°→630°
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.SignReverse">
+            <summary>
+            符号を反転させた角度を取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.Absolute">
+            <summary>
+            角度の絶対値を取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.TotalDegree">
+            <summary>
+            正規化していない角度値を取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.TotalRadian">
+            <summary>
+            正規化していない角度値をラジアンで取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.NormalizedDegree">
+            <summary>
+            正規化された角度値(-180 &lt; angle &lt;= 180)を取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.NormalizedRadian">
+            <summary>
+            正規化された角度値をラジアン(-π &lt; rad &lt; π)で取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.PositiveNormalizedDegree">
+            <summary>
+            正規化された角度値(0 &lt;= angle &lt; 360)を取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.PositiveNormalizedRadian">
+            <summary>
+            正規化された角度値をラジアン(0 &lt;= rad &lt; 2π)で取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Lap">
+            <summary>
+            角度が何周しているかを取得します。
+            例：370°→1周, -1085°→-3周
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.IsCircled">
+            <summary>
+            1周以上しているかどうか(360°以上、もしくは-360°以下かどうか)を取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.IsTrueCircle">
+            <summary>
+            360の倍数の角度であるかどうかを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.IsPositive">
+            <summary>
+            正の角度かどうかを取得します。
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Modules.Angle.Point">
+            <summary>
+            この角度における単位円上の座標を取得します。
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.op_Addition(UnityUtility.Modules.Angle,UnityUtility.Modules.Angle)">
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.op_Subtraction(UnityUtility.Modules.Angle,UnityUtility.Modules.Angle)">
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.op_Multiply(UnityUtility.Modules.Angle,System.Single)">
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.op_Division(UnityUtility.Modules.Angle,System.Single)">
+            <exception cref="T:System.NotFiniteNumberException"/>
+        </member>
+        <member name="M:UnityUtility.Modules.Angle.ArithmeticCheck(System.Func{System.Single})">
+            <summary>
+            演算結果が数値であることを確かめる
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.Debug``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            IEnumerableシーケンスのすべての値をDebug.Logで出力します
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="label">指定した文字列が先頭に[]囲みで出力されます</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.Debug``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.String)">
+            <summary>
+            IEnumerableシーケンスのすべての値をDebug.Logで出力します
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="selector">出力するオブジェクトを指定します</param>
+            <param name="label">指定した文字列が先頭に[]囲みで出力されます</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.ProcessIf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0},System.Predicate{``0})">
+            <summary>
+            シーケンスの各要素が条件に一致する場合、型が不変の任意の処理を加えて後続に流します。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="process">型が不変の任意の処理</param>
+            <param name="predicate">シーケンスの要素に適用する条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.ExcludeNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            シーケンスからnullを排除します。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.Combine``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})">
+            <summary>
+            2つのシーケンスを合成して新しいシーケンスを生成します。
+            要素数が異なる場合、先に終端に達したシーケンスは以後default値が使用されて合成されます。
+            →合成後のシーケンスの要素数は合成元のシーケンスの要素数のうち大きい方となります
+            </summary>
+            <typeparam name="TSource1"></typeparam>
+            <typeparam name="TSource2"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="source1"></param>
+            <param name="source2"></param>
+            <param name="combiner"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.Do``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            LINQメソッドチェーンの間で任意のアクションを実行します。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.FirstOrAny``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0},``0)">
+            <summary>
+            シーケンスを最初から順番に調べ、指定した条件に最初に合致した要素を返します。
+            見つからなかった場合、指定した任意の値を返します。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="predicate">検索条件</param>
+            <param name="notFoundValue">見つからなかった場合に返す値</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.LastOrAny``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0},``0)">
+            <summary>
+            シーケンスを最後から順番に調べ、指定した条件に最初に合致した要素を返します。
+            見つからなかった場合、指定した任意の値を返します。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="predicate">検索条件</param>
+            <param name="notFoundValue">見つからなかった場合に返す値</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.WithIndex``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            シーケンスにインデックス情報を付加します
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            selectorに指定した関数の戻り値が最大となる要素をすべて取得します。
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCompare"><see cref="T:System.IEquatable`1"/>と<see cref="T:System.IComparable`1"/>を実装したオブジェクト</typeparam>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            selectorに指定した関数の戻り値が最小となる要素をすべて取得します。
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TCompare"><see cref="T:System.IEquatable`1"/>と<see cref="T:System.IComparable`1"/>を実装したオブジェクト</typeparam>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.MaxByFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            MaxBy().First()
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TComapre"></typeparam>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.MinByFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            MinBy().First()
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TComapre"></typeparam>
+            <param name="source"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.DictionaryCombine``4(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``2}},System.Func{``1,``2,``3},System.Func{``2,``1},System.Func{``1,``2})">
+            <summary>
+            キーが同一な2つの辞書型を指定された方法に従って合成し、新しい辞書型を生成します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TSourceValue1"></typeparam>
+            <typeparam name="TSourceValue2"></typeparam>
+            <typeparam name="TResultValue"></typeparam>
+            <param name="source1"></param>
+            <param name="source2"></param>
+            <param name="resultSelector"></param>
+            <param name="defaultValue1Selector">source2のみに存在するキーがある場合に使用するsource1の値セレクター</param>
+            <param name="defaultValue2Selector">source1のみに存在するキーがある場合に使用するsource2の値セレクター</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.DictionaryCombine``4(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``2}},System.Func{``1,``2,``3})">
+            <summary>
+            キーが同一な2つの辞書型を指定された方法に従って合成し、新しい辞書型を生成します。
+            片方にしかないキーが存在した場合、もう片方はdefaultとして合成します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TSourceValue1"></typeparam>
+            <typeparam name="TSourceValue2"></typeparam>
+            <typeparam name="TResultValue"></typeparam>
+            <param name="source1"></param>
+            <param name="source2"></param>
+            <param name="resultSelector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.ContainsKey``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},``0)">
+            <summary>
+            辞書型シーケンスの中に指定のキーが含まれているか確認します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="source"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.Keys``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            KeyValuePairのシーケンスからKeyを取り出したシーケンスを取得します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="kvps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.Values``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            KeyValuePairのシーケンスからValueを取り出したシーケンスを取得します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="kvps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.DictionarySelect``3(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Func{``1,``2})">
+            <summary>
+            辞書型のValueに対してSelectを実行します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValueSource"></typeparam>
+            <typeparam name="TValueResult"></typeparam>
+            <param name="dic"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.DictionarySelect``3(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Func{``1,``0,``2})">
+            <summary>
+            辞書型のValueに対してSelectを実行します。インデックスとしてKeyが取得できます。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValueSource"></typeparam>
+            <typeparam name="TValueResult"></typeparam>
+            <param name="dic"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.DictionaryWhere``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Predicate{``1})">
+            <summary>
+            辞書型のValueに対してWhereを実行します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dic"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.DictionaryZip``4(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``2}},System.Func{``1,``2,``3})">
+            <summary>
+            キーが同一な2つの辞書型を指定された方法に従って合成し、新しい辞書型を生成します。
+            片方にしかないキーが存在した場合、その項目は排除されます。
+            </summary>
+            <typeparam name="TKey">合成する辞書型のキー</typeparam>
+            <typeparam name="TSourceValue1">合成する辞書型のValue</typeparam>
+            <typeparam name="TSourceValue2">合成する辞書型のValue</typeparam>
+            <typeparam name="TResultValue">合成結果の辞書型のValue</typeparam>
+            <param name="source1"></param>
+            <param name="source2"></param>
+            <param name="resultSelector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.ExcludeNullValue``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            辞書型のValueがnullのものを排除します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.KeyMapEquals``3(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``2}})">
+            <summary>
+            2つの辞書型のキー同士に対してSequenceEqualsを実行した結果を返します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue1"></typeparam>
+            <typeparam name="TValue2"></typeparam>
+            <param name="sourceDic"></param>
+            <param name="otherDic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.LinqExtensions.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            辞書型のIEnumerableインターフェイスから直接Dictionary具象クラスを生成します。
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dic"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UnityUtility.Linq.Modules.WithIndex`1">
+            <summary>
+            値とインデックス番号のペア
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:UnityUtility.Linq.Modules.IWithIndexEnumerable`1">
+            <summary>
+            要素のインデックス情報が取得できる<see cref="T:System.Collections.Generic.IEnumerable`1"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:UnityUtility.Linq.Modules.Extensions.WithIndex``1(``0,System.Int32)">
+            <summary>
+            オブジェクトを<see cref="M:UnityUtility.Linq.Modules.Extensions.WithIndex``1(``0,System.Int32)"/>にラップする拡張メソッドです
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.EnumerableFactory.Random(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            ランダムな整数値を含んだEnumerableシーケンスを生成します。
+            </summary>
+            <param name="min">生成する値の最小値（この値を含む）</param>
+            <param name="max">生成する値の最大値（この値を含まない）</param>
+            <param name="count">生成する値の数</param>
+            <param name="seed"><see cref="M:UnityEngine.Random.InitState(System.Int32)"/>に引き渡すシード値</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.EnumerableFactory.Random(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            ランダムな整数値を含んだEnumerableシーケンスを生成します。
+            seedには現在のミリ秒が指定されます。
+            </summary>
+            <param name="min">生成する値の最小値（この値を含む）</param>
+            <param name="max">生成する値の最大値（この値を含まない）</param>
+            <param name="count">生成する値の数</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.EnumerableFactory.Random(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            ランダムな実数値を含んだEnumerableシーケンスを生成します。
+            </summary>
+            <param name="min">生成する値の最小値（この値を含む）</param>
+            <param name="max">生成する値の最大値（この値を含む）</param>
+            <param name="count">生成する値の数</param>
+            <param name="seed"><see cref="M:UnityEngine.Random.InitState(System.Int32)"/>に引き渡すシード値</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Linq.EnumerableFactory.Random(System.Single,System.Single,System.Int32)">
+            <summary>
+            ランダムな実数値を含んだEnumerableシーケンスを生成します。
+            seedには現在のミリ秒が指定されます。
+            </summary>
+            <param name="min">生成する値の最小値（この値を含む）</param>
+            <param name="max">生成する値の最大値（この値を含まない）</param>
+            <param name="count">生成する値の数</param>
+            <returns></returns>
+        </member>
+        <member name="T:UnityUtility.Enums.LeftRight">
+            <summary>
+            左右
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Enums.UpDown">
+            <summary>
+            上下
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Enums.Direction">
+            <summary>
+            上下左右
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Collections.Core.CapacityOverException">
+            <summary>
+            キャパシティが限定されているコレクションで、キャパシティを超えて要素を追加したときにスローされる
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Collections.CapacityOverQueueBehaviour">
+            <summary>
+            キャパオーバー時の<see cref="T:UnityUtility.Collections.FixedCapacityQueue`1"/>挙動
+            </summary>
+        </member>
+        <member name="F:UnityUtility.Collections.CapacityOverQueueBehaviour.Ignore">
+            <summary>
+            何もしない、無視する
+            </summary>
+        </member>
+        <member name="F:UnityUtility.Collections.CapacityOverQueueBehaviour.Dequeue">
+            <summary>
+            DequeueしてからEnqueueする
+            </summary>
+        </member>
+        <member name="F:UnityUtility.Collections.CapacityOverQueueBehaviour.ThrowException">
+            <summary>
+            例外をスローする
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Collections.FixedCapacityQueue`1">
+            <summary>
+            要素数が固定の<see cref="T:UnityUtility.Collections.Queue`1"/>
+            </summary>
+        </member>
+        <member name="M:UnityUtility.Collections.FixedCapacityQueue`1.#ctor(UnityUtility.Collections.IQueue{`0},System.Int32,UnityUtility.Collections.CapacityOverQueueBehaviour)">
+            <summary>
+            内部に使用する<see cref="T:UnityUtility.Collections.IQueue`1"/>を指定して、インスタンスを新規作成します
+            </summary>
+            <param name="innerQueue">内部に使用する<see cref="T:UnityUtility.Collections.IQueue`1"/></param>
+            <param name="capacity">固定長</param>
+            <param name="behaviour">空きがない状態で<see cref="M:UnityUtility.Collections.FixedCapacityQueue`1.Enqueue(`0)"/>したときの挙動</param>
+        </member>
+        <member name="M:UnityUtility.Collections.FixedCapacityQueue`1.#ctor(System.Int32,UnityUtility.Collections.CapacityOverQueueBehaviour)">
+            <summary>
+            キャパシティを指定してインスタンスを新規作成します
+            </summary>
+            <param name="capacity">要素数</param>
+            <param name="mode">キャパを超えて要素を追加しようとしたときの挙動</param>
+        </member>
+        <member name="M:UnityUtility.Collections.FixedCapacityQueue`1.#ctor(System.Collections.Generic.IReadOnlyCollection{`0},UnityUtility.Collections.CapacityOverQueueBehaviour)">
+            <summary>
+            ソースコレクションを指定してインスタンスを新規作成します
+            ソースコレクションの要素数がキャパシティとなります
+            </summary>
+            <param name="source">ソースコレクション</param>
+            <param name="mode">キャパを超えて要素を追加しようとしたときの挙動</param>
+        </member>
+        <member name="P:UnityUtility.Collections.FixedCapacityQueue`1.Capacity">
+            <summary>
+            固定長
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Collections.FixedCapacityQueue`1.HasVacancy">
+            <summary>
+            空きがあるかどうか
+            </summary>
+        </member>
+        <member name="P:UnityUtility.Collections.FixedCapacityQueue`1.CapacityOverBehaviour">
+            <summary>
+            空きがない状態で<see cref="M:UnityUtility.Collections.FixedCapacityQueue`1.Enqueue(`0)"/>したときの挙動を取得します。
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Collections.FixedCapacityReactiveQueue`1">
+            <summary>
+            固定長の<see cref="T:UnityUtility.Collections.ReactiveQueue`1"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:UnityUtility.Collections.FixedCapacityReactiveQueue`1.#ctor(System.Int32,UnityUtility.Collections.CapacityOverQueueBehaviour)">
+            <summary>
+            キャパシティを指定してインスタンスを新規作成します
+            </summary>
+            <param name="capacity">要素数</param>
+            <param name="mode">キャパを超えて要素を追加しようとしたときの挙動</param>
+        </member>
+        <member name="M:UnityUtility.Collections.FixedCapacityReactiveQueue`1.#ctor(System.Collections.Generic.IReadOnlyCollection{`0},UnityUtility.Collections.CapacityOverQueueBehaviour)">
+            <summary>
+            ソースコレクションを指定してインスタンスを新規作成します
+            ソースコレクションの要素数がキャパシティとなります
+            </summary>
+            <param name="source">ソースコレクション</param>
+            <param name="mode">キャパを超えて要素を追加しようとしたときの挙動</param>
+        </member>
+        <member name="M:UnityUtility.Collections.IQueue`1.Enqueue(`0)">
+            <summary>
+            キューに値を投入する
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:UnityUtility.Collections.IQueue`1.Dequeue">
+            <summary>
+            キューから値を取り出す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Collections.IQueue`1.Peek">
+            <summary>
+            キューから値を削除せずに値を取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Collections.IQueue`1.Clear">
+            <summary>
+            要素をすべて削除します。
+            </summary>
+        </member>
+        <member name="T:UnityUtility.Collections.Queue`1">
+            <summary>
+            <see cref="T:UnityUtility.Collections.IQueue`1"/>を実装した<see cref="T:UnityUtility.Collections.Queue`1"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:UnityUtility.Collections.IReadOnlyReactiveQueue`1.ObserveEnqueue">
+            <summary>
+            Enqueueされた値の通知を取得します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnityUtility.Collections.IReadOnlyReactiveQueue`1.ObserveDequeue">
+            <summary>
+            Dequeueされたときに取得された値の通知を取得します
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
