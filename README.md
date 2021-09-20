@@ -1,43 +1,43 @@
 # UnityUtility
 
-Unity開発において便利な自作コレクション、自作LINQオペレータ、自作モジュールなどをまとめたオープンソースライブラリです。
+An open source library that includes self-made collections, self-made LINQ operators, and self-made modules that are useful in Unity development.
 
-作者(@yutorisan)がUnity開発において再利用可能と感じたコードをまとめているいわゆる「オレオレライブラリ」です。
-GitHub公開は自己満ですのでよかったら参考程度にどうぞ。
-Issueやプルリクは（もしあればですが）大歓迎です。
+This is the so-called "Oreore Library" that summarizes the code that the author (@yutorisan) felt reusable in Unity development.
+The GitHub release is self-sufficient, so please use it as a reference if you like.
+Issues and pull requests (if any) are welcome.
 
-## 例
+## Examples
 
-UnityUtilityに搭載された機能の一部を紹介します。
+Here are some of the features included in UnityUtility.
 
-### `Angle`モジュール
+### `Angle` module
 
-角度を`float`等のプリミティブ型で扱う場合に比べ、弧度法・度数法を気にすることなく簡潔に扱うことができます。
-角度に関する各種情報の取得、及び操作も用意されています。
+Compared to handling angles with primitive types such as `float`, you can handle them more concisely without worrying about the radian method and degree method.
+You can also get various information about the angle and operate it.
 
 ```csharp
-//60°の角度
+//60° angle
 Angle angle60 = Angle.FromDegree(60);
-//60°を10倍した角度
+//An angle obtained by multiplying 60° by 10
 Angle angle600 = angle60 * 10;
-//600°を正規化 → 60°
+//Normalize 600° → 60°
 Angle normalizedAngle = angle600.Normalize();
-//余弦の取得
+//Acquiring cosine
 float cos60 = angle60.Cos;
 ```
 
-### `IQueue<T>`インターフェイス
+### `IQueue<T>` interface
 
-`System.Collections.Generic`には定義されていない`IQueue<T>`インターフェイスが含まれます。
-これを利用して、独自のキュー構造コレクションクラスを実装することができます。
+`System.Collections.Generic` contains an undefined` IQueue<T> `interface.
+You can take advantage of this to implement your own queue structure collection class.
 
-例えば、本ライブラリには`IQueue<T>`を実装して作られた`ReactiveQueue<T>`クラスが含まれています。
+For example, this library contains the `ReactiveQueue<T>` class created by implementing `IQueue<T>`.
 
-### `Combine`オペレータ
+### `Combine` operator
 
-`Combine`はLINQの新しい独自オペレータです。
+`Combine` is LINQ's new proprietary operator.
 
-2つのIEnumerableシーケンスを、任意の方法で合成することができます。`Zip`オペレータと異なるのは、合成元の要素数が違った場合に、少ない方に合わせるのではなく**大きい方に合わせる**点です。
+You can combine the two IEnumerable sequences in any way you like. The difference from the `Zip` operator is that when the number of elements in the composition source is different, it is not adjusted to the smaller one, but to the larger one.
 
 ```csharp
 //1, 2, 3, 4, 5
@@ -49,50 +49,49 @@ IEnumerable<string> strSq = new List<string>(){"a", "b", "c"};
 IEnumerable<string> combinedSq = intSq.Combine(strSq, (intEl, strEl) => intEl + strEl);
 ```
 
-すべての機能は[Wiki](https://github.com/yutorisan/UnityUtility/wiki)に記載されています。
+All features are listed on the [Wiki](https://github.com/yutorisan/UnityUtility/wiki)(Japanese).
+## Requirements
 
-## 必要要件
+To use this library, you need to have [UniRx](https://github.com/neuecc/UniRx) installed in your Unity project.
 
-本ライブラリを使用するには、Unityプロジェクトに[UniRx](https://github.com/neuecc/UniRx)を導入している必要があります。
+## Operating environment
 
-## 動作環境
-
-以下の環境で動作確認しています。
+We have confirmed the operation in the following environment.
 
 - Visual Studio for Mac 8.10.8 build 0
 - Unity 2021.1.17f
 
 
-## 導入方法
+## Introduction method
 
-本ライブラリをUnityプロジェクトに導入するには、以下の手順を実行します。
+To install this library in your Unity project, follow the steps below.
 
-1. 本リポジトリのルートにある`UnityUtility.dll`を、Unityプロジェクトの`Assets/Plugins`ディレクトリに格納します。`UnityUtility.xml`も同時に格納すると、Visual Studioでの開発路においてクイックヒントを表示することができます。
-1. Unityプロジェクトを開くとコンパイルが始まり、使用可能になります。
+1. Store `UnityUtility.dll` in the root of this repository in the` Assets/Plugins` directory of the Unity project. If you also store `UnityUtility.xml` at the same time, you can display quick hints on the development path in Visual Studio.
+1. Open the Unity project and it will start compiling and become available.
+## How to customize
 
-## カスタマイズ方法
+You can fork or clone this repository to customize it.
 
-本リポジトリをフォークまたはクローンして、カスタマイズすることができます。
+1. Fork or clone the repository and save it locally.
+2. Open `UnityUtility.sln`.
+3. From "Add Reference ...", add the following reference settings.
+     - UniRx.dll
+       - If you have UniRx installed in your Unity project, it should be in Library / ScriptAssemblies
+     - UnityEngine.CoreModule.dll
+       - Should be in Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managed
+4. Modify the code and build.
+5. Import the output dll into your Unity project as described in "Installation Method".
 
-1. リポジトリをフォークまたはクローンして、ローカルに保存します。
-2. `UnityUtility.sln`を開きます。
-3. 「参照の追加…」から、以下の参照設定を追加します。
-    - UniRx.dll
-      - UnityプロジェクトにUniRxを導入していれば、Library/ScriptAssembliesにあるはず
-    - UnityEngine.CoreModule.dll
-      - Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managedにあるはず
-4. コードを変更してビルドします。
-5. 出力されたdllを「導入方法」の通りにUnityプロジェクトにインポートします。
 
-## 使い方
+## How to use
 
-[Wiki](https://github.com/yutorisan/UnityUtility/wiki)参照。
+See [Wiki](https://github.com/yutorisan/UnityUtility/wiki)(Japanese).
 
-## ライセンス
+## License
 
 MIT
 
-## 権利表記
+## Right notation
 
 UniRx Copyright (c) 2018 Yoshifumi Kawai
 https://github.com/neuecc/UniRx/blob/master/LICENSE
