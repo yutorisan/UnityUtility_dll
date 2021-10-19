@@ -59,9 +59,6 @@
   <ItemGroup>
     <Compile Include="Extensions\UnityExtensions.cs" />
     <Compile Include="Extensions\VectorExtensions.cs" />
-    <Compile Include="Modules\SerializeInterface.cs" />
-    <Compile Include="Modules\UniReadOnly.cs" />
-    <Compile Include="Modules\UniqueRandom.cs" />
     <Compile Include="Linq\Operators\Debug.cs" />
     <Compile Include="Linq\Operators\ProcessIf.cs" />
     <Compile Include="Linq\Operators\ExcludeNull.cs" />
@@ -76,7 +73,6 @@
     <Compile Include="Linq\Operators\MaxMinBy.cs" />
     <Compile Include="Linq\Modules\WithIndexValue.cs" />
     <Compile Include="Linq\Modules\WithIndexEnumerable.cs" />
-    <Compile Include="Modules\Angle.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryCombine.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\ContainsKey.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\Keys.cs" />
@@ -106,6 +102,8 @@
     <Folder Include="Linq\Operators\DictionaryOperators\" />
     <Folder Include="Linq\Factories\" />
     <Folder Include="Collections\" />
+    <Folder Include="Modules\Structs\" />
+    <Folder Include="Modules\Classes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
