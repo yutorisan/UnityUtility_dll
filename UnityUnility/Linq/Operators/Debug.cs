@@ -24,8 +24,8 @@ namespace UnityUtility.Linq
             foreach (var item in source)
             {
                 UnityEngine.Debug.Log(l + item.ToString());
+                yield return item;
             }
-            return source;
         }
         /// <summary>
         /// IEnumerableシーケンスのすべての値をDebug.Logで出力します
@@ -52,8 +52,12 @@ namespace UnityUtility.Linq
                 throw new ArgumentException($"'{nameof(label)}' を null または空にすることはできません", nameof(label));
             }
 
-            source.Select(selector).Debug(label);
-            return source;
+            var l = label != null ? $"[{label}]" : string.Empty;
+            foreach (var item in source)
+            {
+                UnityEngine.Debug.Log(l + selector(item).ToString());
+                yield return item;
+            }
         }
     }
 }
