@@ -50,10 +50,10 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UniRx">
-      <HintPath>..\..\..\MedalPusherGame\Library\ScriptAssemblies\UniRx.dll</HintPath>
+      <HintPath>..\..\..\EleCuit-02106\Client\EleCuit\Library\ScriptAssemblies\UniRx.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Applications\2021.1.2f1\PlaybackEngines\WindowsStandaloneSupport\Variations\win64_nondevelopment_mono\Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Applications\2021.1.24f1\Unity.app\Contents\PlaybackEngines\MacStandaloneSupport\Variations\mono\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +91,10 @@
     <Compile Include="Collections\Queue\Queue.cs" />
     <Compile Include="Collections\Queue\ReactiveQueue.cs" />
     <Compile Include="Enums\EnumUtils.cs" />
+    <Compile Include="Rx\Operators\DoOnFirst.cs" />
+    <Compile Include="Rx\Operators\Count.cs" />
+    <Compile Include="Rx\Operators\ExcludeNull.cs" />
+    <Compile Include="Rx\Operators\WithCount.cs" />
     <Compile Include="Modules\Structs\Angle.cs" />
     <Compile Include="Modules\Classes\SerializeInterface.cs" />
     <Compile Include="Modules\Classes\UniqueRandom.cs" />
@@ -106,6 +110,8 @@
     <Folder Include="Linq\Operators\DictionaryOperators\" />
     <Folder Include="Linq\Factories\" />
     <Folder Include="Collections\" />
+    <Folder Include="Rx\" />
+    <Folder Include="Rx\Operators\" />
     <Folder Include="Modules\Structs\" />
     <Folder Include="Modules\Classes\" />
   </ItemGroup>
