@@ -71,7 +71,6 @@
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Linq\Operators\WithIndex.cs" />
     <Compile Include="Linq\Operators\MaxMinBy.cs" />
-    <Compile Include="Linq\Modules\WithIndexValue.cs" />
     <Compile Include="Linq\Modules\WithIndexEnumerable.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryCombine.cs" />
     <Compile Include="Linq\Operators\DictionaryOperators\DictionaryMembers\ContainsKey.cs" />
@@ -92,6 +91,11 @@
     <Compile Include="Collections\Queue\Queue.cs" />
     <Compile Include="Collections\Queue\ReactiveQueue.cs" />
     <Compile Include="Enums\EnumUtils.cs" />
+    <Compile Include="Modules\Structs\Angle.cs" />
+    <Compile Include="Modules\Classes\SerializeInterface.cs" />
+    <Compile Include="Modules\Classes\UniqueRandom.cs" />
+    <Compile Include="Modules\Classes\UniReadOnly.cs" />
+    <Compile Include="Modules\Structs\WithIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
