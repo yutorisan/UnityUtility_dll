@@ -101,6 +101,7 @@
     <Compile Include="Modules\Classes\UniReadOnly.cs" />
     <Compile Include="Modules\Structs\WithIndex.cs" />
     <Compile Include="Rx\Operators\Stabilize.cs" />
+    <Compile Include="Linq\Operators\Print.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

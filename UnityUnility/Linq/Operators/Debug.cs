@@ -47,11 +47,6 @@ namespace UnityUtility.Linq
                 throw new ArgumentNullException(nameof(selector));
             }
 
-            if (string.IsNullOrEmpty(label))
-            {
-                throw new ArgumentException($"'{nameof(label)}' を null または空にすることはできません", nameof(label));
-            }
-
             var l = label != null ? $"[{label}]" : string.Empty;
             foreach (var item in source)
             {
