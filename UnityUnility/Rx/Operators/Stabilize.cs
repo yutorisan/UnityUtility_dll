@@ -60,26 +60,59 @@ namespace UnityUtility.Rx.Operators
                 return new Stabilize(this, observer, cancel).Run();
             }
 
-            private class Stabilize : OperatorObserverBase<T, T>
+            private abstract class StabilizeBase : OperatorObserverBase<T, T>
             {
-                private readonly StabilizeObservable<T> parent;
-                private readonly object gate = new object();
-                private ulong objectId = 0ul;
-                private SerialDisposable timerSubscription;
-                private SingleAssignmentDisposable sourceSubscription;
+                protected readonly StabilizeObservable<T> parent;
+                protected SerialDisposable timerSubscription = new SerialDisposable();
+                protected SingleAssignmentDisposable sourceSubscription = new SingleAssignmentDisposable();
+                protected ulong objectId = 0ul;
+                protected readonly object gate = new object();
 
-                public Stabilize(StabilizeObservable<T> parent, IObserver<T> observer, IDisposable cancel)
+                protected StabilizeBase(StabilizeObservable<T> parent, IObserver<T> observer, IDisposable cancel)
                     : base(observer, cancel)
                 {
                     this.parent = parent;
                 }
 
+                public override void OnCompleted()
+                {
+                    //オブジェクトIDを変更して前のタイマーイベントが発生しないようにする
+                    lock (gate) ++objectId;
+
+                    //タイマーを止める
+                    timerSubscription.Dispose();
+                    try { observer.OnCompleted(); }
+                    finally { Dispose(); }
+                }
+
+                public override void OnError(Exception error)
+                {
+                    lock (gate) ++objectId;
+
+                    timerSubscription.Dispose();
+                    try { observer.OnError(error); }
+                    finally { Dispose(); }
+                }
+
+                /// <summary>
+                /// 値がターゲットに存在するかをチェックする
+                /// </summary>
+                /// <param name="value"></param>
+                /// <returns></returns>
+                protected bool isTarget(T value) =>
+                    parent.isAllTarget || parent.target.Any(x => x.Equals(value));
+            }
+
+            private class Stabilize : StabilizeBase
+            {
+                public Stabilize(StabilizeObservable<T> parent, IObserver<T> observer, IDisposable cancel)
+                    : base(parent, observer, cancel)
+                {
+                }
+
                 public IDisposable Run()
                 {
-                    sourceSubscription = new SingleAssignmentDisposable();
-                    timerSubscription = new SerialDisposable();
                     sourceSubscription.Disposable = parent.source.Subscribe(this);
-
                     return StableCompositeDisposable.Create(timerSubscription, sourceSubscription);
                 }
 
@@ -103,26 +136,6 @@ namespace UnityUtility.Rx.Operators
                     });
                 }
 
-                public override void OnCompleted()
-                {
-                    //オブジェクトIDを変更して前のタイマーイベントが発生しないようにする
-                    lock (gate) ++objectId;
-
-                    //タイマーを止める
-                    timerSubscription.Dispose();
-                    try { observer.OnCompleted(); }
-                    finally { Dispose(); }
-                }
-
-                public override void OnError(Exception error)
-                {
-                    lock (gate) ++objectId;
-
-                    timerSubscription.Dispose();
-                    try { observer.OnError(error); }
-                    finally { Dispose(); }
-                }
-
                 public override void OnNext(T value)
                 {
                     ulong useObjectId;
@@ -133,7 +146,7 @@ namespace UnityUtility.Rx.Operators
                     }
 
                     //スタビライズターゲットに存在したら
-                    if (parent.isAllTarget || parent.target.Any(x => x.Equals(value)))
+                    if (isTarget(value))
                     {
                         //前のタイマーを停止して、新しくタイマーを開始
                         timerSubscription.Disposable = RunTimer(useObjectId, value);
