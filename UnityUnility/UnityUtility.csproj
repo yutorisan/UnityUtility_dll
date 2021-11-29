@@ -57,15 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\UnityExtensions.cs" />
-    <Compile Include="Extensions\VectorExtensions.cs" />
     <Compile Include="Linq\Operators\Debug.cs" />
     <Compile Include="Linq\Operators\ProcessIf.cs" />
     <Compile Include="Linq\Operators\ExcludeNull.cs" />
     <Compile Include="Linq\Operators\Combine.cs" />
     <Compile Include="Linq\Operators\Do.cs" />
     <Compile Include="Linq\Operators\FirstOrAny.cs" />
-    <Compile Include="Extensions\Deconstructs.cs" />
     <Compile Include="Enums\LeftRight.cs" />
     <Compile Include="Enums\UpDown.cs" />
     <Compile Include="Enums\Direction.cs" />
@@ -102,9 +99,11 @@
     <Compile Include="Modules\Structs\WithIndex.cs" />
     <Compile Include="Rx\Operators\Stabilize.cs" />
     <Compile Include="Linq\Operators\Print.cs" />
+    <Compile Include="Utils\Extensions\Deconstructs.cs" />
+    <Compile Include="Utils\Extensions\UnityExtensions.cs" />
+    <Compile Include="Utils\Extensions\VectorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="Modules\" />
     <Folder Include="Linq\" />
     <Folder Include="Linq\Operators\" />
@@ -116,6 +115,8 @@
     <Folder Include="Rx\Operators\" />
     <Folder Include="Modules\Structs\" />
     <Folder Include="Modules\Classes\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Utils\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

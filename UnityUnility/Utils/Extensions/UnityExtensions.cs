@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace UnityUtility.Extensions
+namespace UnityUtility
 {
     public static class UnityExtensions
     {
