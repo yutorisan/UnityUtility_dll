@@ -7,11 +7,10 @@ namespace UnityUtility
     public static class UnityExtensions
     {
         /// <summary>
-        /// このコンポーネントをアタッチしているGameObjectの子オブジェクトのTransformをすべて取得します。
-        /// 次の式に等しい：this.transform.Cast<Transform>()
+        /// same as <code>.transform.Cast&lt;Transform&gt;()</code>
         /// </summary>
-        /// <param name="mono"></param>
+        /// <param name="component"></param>
         /// <returns></returns>
-        public static IEnumerable<Transform> GetChildTransforms(this MonoBehaviour mono) => mono.transform.Cast<Transform>();
+        public static IEnumerable<Transform> Transforms(this Component component) => component.transform.Cast<Transform>();
     }
 }
