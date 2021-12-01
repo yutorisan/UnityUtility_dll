@@ -102,6 +102,7 @@
     <Compile Include="Utils\Extensions\Deconstructs.cs" />
     <Compile Include="Utils\Extensions\UnityExtensions.cs" />
     <Compile Include="Utils\Extensions\VectorExtensions.cs" />
+    <Compile Include="Utils\Extensions\RectTransformExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\" />

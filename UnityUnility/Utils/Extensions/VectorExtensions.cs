@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using static UnityEngine.Mathf;
 
 
@@ -131,6 +132,24 @@ namespace UnityUtility
         public static Vector3 AsZ(this int value) => new Vector3(0, 0, value);
         public static Vector3 AsZ(this float value) => new Vector3(0, 0, value);
         public static Vector3 AsZInt(this int value) => new Vector3Int(0, 0, value);
+
+        /// <summary>
+        /// 複数点の中心点を求める
+        /// </summary>
+        /// <param name="points"></param>
+        /// <returns></returns>
+        public static Vector3 GetCenter(this IEnumerable<Vector3> points)
+        {
+            int count = 0;
+            Vector3 sum = new Vector3();
+            foreach (var point in points)
+            {
+                sum += point;
+                ++count;
+            }
+            if (count == 0) return Vector3.zero;
+            else return sum / count; 
+        }
     }
 
 }
