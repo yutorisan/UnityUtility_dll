@@ -103,6 +103,8 @@
     <Compile Include="Utils\Extensions\UnityExtensions.cs" />
     <Compile Include="Utils\Extensions\VectorExtensions.cs" />
     <Compile Include="Utils\Extensions\RectTransformExtensions.cs" />
+    <Compile Include="Rx\Operators\TakeIf.cs" />
+    <Compile Include="Utils\Extensions\GeneralExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\" />
