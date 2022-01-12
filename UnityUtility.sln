@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility", "UnityUnility\UnityUtility.csproj", "{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility2", "UnityUtility2\UnityUtility2.csproj", "{FA85AD49-DF44-40DB-8332-41832E174133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtilityUnitTest", "UnityUtilityUnitTest\UnityUtilityUnitTest.csproj", "{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -13,5 +17,13 @@ Global
 		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Debug|anycpu.Build.0 = Debug|anycpu
 		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Release|anycpu.ActiveCfg = Release|anycpu
 		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Release|anycpu.Build.0 = Release|anycpu
+		{FA85AD49-DF44-40DB-8332-41832E174133}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{FA85AD49-DF44-40DB-8332-41832E174133}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{FA85AD49-DF44-40DB-8332-41832E174133}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{FA85AD49-DF44-40DB-8332-41832E174133}.Release|anycpu.Build.0 = Release|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
