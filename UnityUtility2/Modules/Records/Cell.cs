@@ -12,6 +12,8 @@ namespace UnityUtility.Modules
 
         public int Column { get; init; }
         public int Row { get; init; }
+
+        public void Deconstruct(out int column, out int row) => (column, row) = (Column, Row);
     }
 }
 

@@ -14,7 +14,7 @@ namespace UnityUtility.Collections
     /// 二次元マトリックス構造
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class MapSlim<T> : Map<T>, IMapSlim<T>, IExpandableMap<T> where T : unmanaged
+    public class MapSlim<T> : Map<T>, IFixedMapSlim<T>, IMap<T> where T : unmanaged
     {
         public MapSlim(int column, int row, T plainValue = default) : base(column, row, plainValue)
         {

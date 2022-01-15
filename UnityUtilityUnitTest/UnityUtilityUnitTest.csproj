@@ -21,9 +21,17 @@
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UniRx">
+      <HintPath>..\..\..\EleCuit-02106\Client\EleCuit\Library\ScriptAssemblies\UniRx.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\..\Applications\2021.1.24f1\Unity.app\Contents\PlaybackEngines\MacStandaloneSupport\Variations\mono\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Remove="UnityUtility" />
+    <None Remove="UniRx" />
+    <None Remove="UnityEngine.CoreModule" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\UnityUnility\UnityUtility2\UnityUtility2.csproj" />

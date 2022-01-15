@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using UniRx;
 using UnityUtility.Enums;
 using UnityUtility.Modules;
 
 namespace UnityUtility.Collections
 {
-    public class Map<T> : IExpandableMap<T>
+    public class Map<T> : IMap<T>, IReactiveMap<T>
     {
         #region constant
         protected static readonly string CannotConstructZeroSizeMapErrMsg = "行または列が0以下のマップは作成できません";
@@ -19,6 +20,12 @@ namespace UnityUtility.Collections
 
         #region field
         protected T[] m_map;
+
+        private ISubject<MapCellReplaceEvent<T>> m_cellReplaceSubject;
+        private ISubject<MapColumnReplaceEvent<T>> m_columnReplaceSubject;
+        private ISubject<MapRowReplaceEvent<T>> m_rowReplaceSubject;
+        private ISubject<MapReplaceEvent<T>> m_replaceSubject;
+        private ISubject<MapExpandEvent> m_expandSubject;
         #endregion
 
         #region constructor
@@ -86,7 +93,10 @@ namespace UnityUtility.Collections
             set
             {
                 if (isOutOfRange(column, row)) throw new IndexOutOfRangeException();
-                m_map[to1DIndex(column, row)] = value;
+                int index = to1DIndex(column, row);
+                T old = m_map[index];
+                m_map[index] = value;
+                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, value));
             }
         }
         public T this[Cell cell]
@@ -94,12 +104,12 @@ namespace UnityUtility.Collections
             get => this[cell.Column, cell.Row];
             set => this[cell.Column, cell.Row] = value;
         }
-        T IMap<T>.this[int column, int row]
+        T IFixedMap<T>.this[int column, int row]
         {
             get => this[column, row];
             set => this[column, row] = value;
         }
-        T IMap<T>.this[Cell cell]
+        T IFixedMap<T>.this[Cell cell]
         {
             get => this[cell.Column, cell.Row];
             set => this[cell.Column, cell.Row] = value;
@@ -141,7 +151,9 @@ namespace UnityUtility.Collections
             for (int column = 0; column < ColumnCount; column++)
             {
                 int index1d = to1DIndex(column, row);
+                T old = m_map[index1d];
                 m_map[index1d] = rewriter(m_map[index1d]);
+                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, m_map[index1d]));
             }
         }
         public virtual void ReWriteColumn(int column, Func<T, T> rewriter)
@@ -150,7 +162,9 @@ namespace UnityUtility.Collections
             for (int row = 0; row < RowCount; row++)
             {
                 int index1d = to1DIndex(column, row);
+                T old = m_map[index1d];
                 m_map[index1d] = rewriter(m_map[index1d]);
+                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, m_map[index1d]));
             }
         }
         public virtual void ReWriteAll(Func<T, T> rewriter)
@@ -160,7 +174,9 @@ namespace UnityUtility.Collections
                 for (int row = 0; row < RowCount; row++)
                 {
                     int index1d = to1DIndex(column, row);
+                    T old = m_map[index1d];
                     m_map[index1d] = rewriter(m_map[index1d]);
+                    m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, m_map[index1d]));
                 }
             }
         }
@@ -206,6 +222,7 @@ namespace UnityUtility.Collections
                     _ => throw new InvalidEnumArgumentException()
                 };
             action();
+            m_expandSubject?.OnNext(new MapExpandEvent(lr.ToDirection(), amount));
         }
 
         public virtual void ExpandRow(UpDown ud, int amount)
@@ -246,9 +263,32 @@ namespace UnityUtility.Collections
                     _ => throw new InvalidEnumArgumentException()
                 };
             action();
+            m_expandSubject?.OnNext(new MapExpandEvent(ud.ToDirection(), amount));
         }
 
         public Map<T> Clone() => new Map<T>(ColumnCount, RowCount, m_map, PlainValue);
+
+        public IObservable<MapCellReplaceEvent<T>> ObservableCellReplace() =>
+            m_cellReplaceSubject?.AsObservable() ?? (m_cellReplaceSubject = new Subject<MapCellReplaceEvent<T>>()).AsObservable();
+
+        //public IObservable<MapRowReplaceEvent<T>> ObservableRowReplace()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public IObservable<MapColumnReplaceEvent<T>> ObservableColumnReplace()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public IObservable<MapReplaceEvent<T>> ObservableReplace()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public IObservable<MapExpandEvent> ObservableExpand() =>
+            m_expandSubject?.AsObservable() ?? (m_expandSubject = new Subject<MapExpandEvent>()).AsObservable();
+
         #endregion
 
         #region method private
@@ -314,6 +354,7 @@ namespace UnityUtility.Collections
         /// <param name="row"></param>
         /// <returns></returns>
         private bool isOutOfRange(int column, int row) => isOutOfRangeColumn(column) || isOutOfRangeRow(row);
+
         #endregion
 
     }
