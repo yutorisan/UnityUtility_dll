@@ -17,6 +17,23 @@ namespace UnityUtility
             UnityEngine.Debug.Log(log);
             return obj;
         }
+        /// <summary>
+        /// 値がdefaultかどうか判定します
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsDefault<T>(this T value)
+        {
+            if (typeof(T).IsValueType)
+            {
+                return value.Equals(default);
+            }
+            else
+            {
+                return value == null;
+            }
+        }
     }
 }
 

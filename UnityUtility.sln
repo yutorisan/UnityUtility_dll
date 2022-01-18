@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility", "UnityUnility\UnityUtility.csproj", "{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtilityUnitTest", "UnityUtilityUnitTest\UnityUtilityUnitTest.csproj", "{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility", "UnityUtility3\UnityUtility.csproj", "{40FAF053-91F7-44D1-B14C-D4D567D3A47A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +11,13 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Debug|anycpu.Build.0 = Debug|anycpu
-		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Release|anycpu.ActiveCfg = Release|anycpu
-		{B28D0DB6-AC0F-4721-A0DE-F5855A50E4CA}.Release|anycpu.Build.0 = Release|anycpu
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Release|anycpu.Build.0 = Release|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
