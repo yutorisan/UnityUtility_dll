@@ -21,7 +21,7 @@ namespace UnityUtility.Modules
         {
             this.m_min = min;
             this.m_max = max;
-            //this.IsAutoReset = isAutoReset;
+            this.IsAutoReset = isAutoReset;
         }
 
         /// <summary>

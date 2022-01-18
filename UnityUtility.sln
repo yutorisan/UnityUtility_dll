@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility2", "UnityUtili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtilityUnitTest", "UnityUtilityUnitTest\UnityUtilityUnitTest.csproj", "{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityUtility3", "UnityUtility3\UnityUtility3.csproj", "{40FAF053-91F7-44D1-B14C-D4D567D3A47A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -25,5 +27,9 @@ Global
 		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{3ECDBC94-A2B2-47D9-88C9-FCE0931A04C1}.Release|anycpu.Build.0 = Release|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{40FAF053-91F7-44D1-B14C-D4D567D3A47A}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
