@@ -133,6 +133,11 @@ namespace UnityUtility
         public static Vector3 AsZ(this float value) => new Vector3(0, 0, value);
         public static Vector3 AsZInt(this int value) => new Vector3Int(0, 0, value);
 
+        public static Vector2 ToVector2(this int value) => new Vector2(value, value);
+        public static Vector2 ToVector2(this float value) => new Vector2(value, value);
+        public static Vector3 ToVector3(this int value) => new Vector3(value, value, value);
+        public static Vector3 ToVector3(this float value) => new Vector3(value, value, value);
+
         /// <summary>
         /// 複数点の中心点を求める
         /// </summary>

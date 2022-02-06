@@ -5,6 +5,7 @@
 
     <IsPackable>false</IsPackable>
     <BaseDirectory>..\..\UnityUnility</BaseDirectory>
+    <ReleaseVersion>0.3.1</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
