@@ -142,6 +142,17 @@ namespace UnityUtility.Collections
                 yield return m_map[to1DIndex(column, row)];
             }
         }
+
+        public void DoForEachCell(Action<Cell, T> cellAction)
+        {
+            for (int i = 0; i < m_map.Length; i++)
+            {
+                int row = i / ColumnCount;
+                int column = i - row * ColumnCount;
+                cellAction(new Cell(column, row), m_map[to1DIndex(column, row)]);
+            }
+        }
+
         public IEnumerator<T> GetEnumerator() => m_map.Cast<T>().GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => m_map.GetEnumerator();
 
@@ -354,7 +365,6 @@ namespace UnityUtility.Collections
         /// <param name="row"></param>
         /// <returns></returns>
         private bool isOutOfRange(int column, int row) => isOutOfRangeColumn(column) || isOutOfRangeRow(row);
-
         #endregion
 
     }

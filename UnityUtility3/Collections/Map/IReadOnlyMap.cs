@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityUtility.Modules;
 
 namespace UnityUtility.Collections
@@ -35,6 +36,11 @@ namespace UnityUtility.Collections
         /// <param name="column"></param>
         /// <returns></returns>
         IEnumerable<T> GetColumnEnumerable(int column);
+        /// <summary>
+        /// すべてのセルとその値に対する任意の処理を実行します
+        /// </summary>
+        /// <returns></returns>
+        void DoForEachCell(Action<Cell, T> cellAction);
     }
 }
 
