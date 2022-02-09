@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using UniRx;
 using UnityUtility.Enums;
+using UnityUtility.Linq.Modules;
 using UnityUtility.Modules;
 
 namespace UnityUtility.Collections
@@ -80,6 +81,19 @@ namespace UnityUtility.Collections
             this.PlainValue = plainValue;
             this.m_map = source2dArray.Cast<T>().ToArray();
         }
+        /// <summary>
+        /// 元となる別のMapをクローン元として新しいMapを作成します（シャローコピー）
+        /// </summary>
+        /// <param name="sourceMap"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public Map(IReadOnlyMap<T> sourceMap)
+        {
+            if (sourceMap is null) throw new ArgumentNullException(nameof(sourceMap));
+            this.ColumnCount = sourceMap.ColumnCount;
+            this.RowCount = sourceMap.RowCount;
+            this.PlainValue = sourceMap.PlainValue;
+            this.m_map = sourceMap.ToArray();
+        }
         #endregion
 
         #region indexer
@@ -87,12 +101,12 @@ namespace UnityUtility.Collections
         {
             get
             {
-                if (isOutOfRange(column, row)) throw new IndexOutOfRangeException();
+                if (!IsWithInRange(column, row)) throw new IndexOutOfRangeException();
                 return m_map[to1DIndex(column, row)];
             }
             set
             {
-                if (isOutOfRange(column, row)) throw new IndexOutOfRangeException();
+                if (!IsWithInRange(column, row)) throw new IndexOutOfRangeException();
                 int index = to1DIndex(column, row);
                 T old = m_map[index];
                 m_map[index] = value;
@@ -127,7 +141,7 @@ namespace UnityUtility.Collections
 
         public IEnumerable<T> GetRowEnumerable(int row)
         {
-            if (isOutOfRangeRow(row)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
+            if (!IsWithInRangeRow(row)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
             for (int column = 0; column < ColumnCount; column++)
             {
                 yield return m_map[to1DIndex(column, row)];
@@ -136,7 +150,7 @@ namespace UnityUtility.Collections
 
         public IEnumerable<T> GetColumnEnumerable(int column)
         {
-            if (isOutOfRangeColumn(column)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
+            if (!IsWithInRangeColumn(column)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
             for (int row = 0; row < RowCount; row++)
             {
                 yield return m_map[to1DIndex(column, row)];
@@ -158,7 +172,7 @@ namespace UnityUtility.Collections
 
         public virtual void ReWriteRow(int row, Func<T, T> rewriter)
         {
-            if (isOutOfRangeRow(row)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
+            if (!IsWithInRangeRow(row)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
             for (int column = 0; column < ColumnCount; column++)
             {
                 int index1d = to1DIndex(column, row);
@@ -169,7 +183,7 @@ namespace UnityUtility.Collections
         }
         public virtual void ReWriteColumn(int column, Func<T, T> rewriter)
         {
-            if (isOutOfRangeColumn(column)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
+            if (!IsWithInRangeColumn(column)) throw new ArgumentOutOfRangeException(OutOfRangeErrMsg);
             for (int row = 0; row < RowCount; row++)
             {
                 int index1d = to1DIndex(column, row);
@@ -282,23 +296,13 @@ namespace UnityUtility.Collections
         public IObservable<MapCellReplaceEvent<T>> ObservableCellReplace() =>
             m_cellReplaceSubject?.AsObservable() ?? (m_cellReplaceSubject = new Subject<MapCellReplaceEvent<T>>()).AsObservable();
 
-        //public IObservable<MapRowReplaceEvent<T>> ObservableRowReplace()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public IObservable<MapColumnReplaceEvent<T>> ObservableColumnReplace()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public IObservable<MapReplaceEvent<T>> ObservableReplace()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public IObservable<MapExpandEvent> ObservableExpand() =>
             m_expandSubject?.AsObservable() ?? (m_expandSubject = new Subject<MapExpandEvent>()).AsObservable();
+
+        public bool IsWithInRangeRow(int row) => row >= 0 && row < RowCount;
+        public bool IsWithInRangeColumn(int column) => column >= 0 && column < ColumnCount;
+        public bool IsWithInRange(int column, int row) => IsWithInRangeColumn(column) && IsWithInRangeRow(row);
+        public bool IsWithInRange(Cell cell) => IsWithInRange(cell.Column, cell.Row);
 
         #endregion
 
@@ -346,25 +350,6 @@ namespace UnityUtility.Collections
         /// <param name="row"></param>
         /// <returns></returns>
         private int to1DIndex(int column, int row) => ColumnCount * row + column;
-        /// <summary>
-        /// 指定された行がマップの範囲内かどうか
-        /// </summary>
-        /// <param name="row"></param>
-        /// <returns></returns>
-        private bool isOutOfRangeRow(int row) => row < 0 || row >= RowCount;
-        /// <summary>
-        /// 指定された列がマップの範囲内かどうか
-        /// </summary>
-        /// <param name="column"></param>
-        /// <returns></returns>
-        private bool isOutOfRangeColumn(int column) => column < 0 || column >= ColumnCount;
-        /// <summary>
-        /// 指定されたセル画マップの範囲内かどうか
-        /// </summary>
-        /// <param name="column"></param>
-        /// <param name="row"></param>
-        /// <returns></returns>
-        private bool isOutOfRange(int column, int row) => isOutOfRangeColumn(column) || isOutOfRangeRow(row);
         #endregion
 
     }

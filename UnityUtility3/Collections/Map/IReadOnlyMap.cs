@@ -41,6 +41,31 @@ namespace UnityUtility.Collections
         /// </summary>
         /// <returns></returns>
         void DoForEachCell(Action<Cell, T> cellAction);
+        /// <summary>
+        /// 列番号がMapの範囲内かどうか判定します
+        /// </summary>
+        /// <param name="column"></param>
+        /// <returns></returns>
+        bool IsWithInRangeColumn(int column);
+        /// <summary>
+        /// 行番号がMapの範囲内かどうか判定します
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        bool IsWithInRangeRow(int row);
+        /// <summary>
+        /// 指定された行と列がMapの範囲内かどうか判定します
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        bool IsWithInRange(int column, int row);
+        /// <summary>
+        /// 指定されたセルがMapの範囲内かどうか判定します
+        /// </summary>
+        /// <param name="cell"></param>
+        /// <returns></returns>
+        bool IsWithInRange(Cell cell);
     }
 }
 
