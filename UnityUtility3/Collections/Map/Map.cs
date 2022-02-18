@@ -110,23 +110,13 @@ namespace UnityUtility.Collections
                 int index = to1DIndex(column, row);
                 T old = m_map[index];
                 m_map[index] = value;
-                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, value));
+                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(column, row, old, value));
             }
-        }
-        public T this[Cell cell]
-        {
-            get => this[cell.Column, cell.Row];
-            set => this[cell.Column, cell.Row] = value;
         }
         T IFixedMap<T>.this[int column, int row]
         {
             get => this[column, row];
             set => this[column, row] = value;
-        }
-        T IFixedMap<T>.this[Cell cell]
-        {
-            get => this[cell.Column, cell.Row];
-            set => this[cell.Column, cell.Row] = value;
         }
         #endregion
 
@@ -157,18 +147,18 @@ namespace UnityUtility.Collections
             }
         }
 
-        public void DoForEachCell(Action<Cell, T> cellAction)
+        public IEnumerator<T> GetEnumerator() => m_map.Cast<T>().GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => m_map.GetEnumerator();
+
+        public IEnumerable<ICell<T>> GetCellEnumerable()
         {
             for (int i = 0; i < m_map.Length; i++)
             {
                 int row = i / ColumnCount;
                 int column = i - row * ColumnCount;
-                cellAction(new Cell(column, row), m_map[to1DIndex(column, row)]);
+                yield return new Cell<T>(column, row, m_map[to1DIndex(column, row)]);
             }
         }
-
-        public IEnumerator<T> GetEnumerator() => m_map.Cast<T>().GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => m_map.GetEnumerator();
 
         public virtual void ReWriteRow(int row, Func<T, T> rewriter)
         {
@@ -178,7 +168,7 @@ namespace UnityUtility.Collections
                 int index1d = to1DIndex(column, row);
                 T old = m_map[index1d];
                 m_map[index1d] = rewriter(m_map[index1d]);
-                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, m_map[index1d]));
+                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(column, row, old, m_map[index1d]));
             }
         }
         public virtual void ReWriteColumn(int column, Func<T, T> rewriter)
@@ -189,7 +179,7 @@ namespace UnityUtility.Collections
                 int index1d = to1DIndex(column, row);
                 T old = m_map[index1d];
                 m_map[index1d] = rewriter(m_map[index1d]);
-                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, m_map[index1d]));
+                m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(column, row, old, m_map[index1d]));
             }
         }
         public virtual void ReWriteAll(Func<T, T> rewriter)
@@ -201,7 +191,7 @@ namespace UnityUtility.Collections
                     int index1d = to1DIndex(column, row);
                     T old = m_map[index1d];
                     m_map[index1d] = rewriter(m_map[index1d]);
-                    m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(new Cell(column, row), old, m_map[index1d]));
+                    m_cellReplaceSubject?.OnNext(new MapCellReplaceEvent<T>(column, row, old, m_map[index1d]));
                 }
             }
         }
@@ -302,7 +292,6 @@ namespace UnityUtility.Collections
         public bool IsWithInRangeRow(int row) => row >= 0 && row < RowCount;
         public bool IsWithInRangeColumn(int column) => column >= 0 && column < ColumnCount;
         public bool IsWithInRange(int column, int row) => IsWithInRangeColumn(column) && IsWithInRangeRow(row);
-        public bool IsWithInRange(Cell cell) => IsWithInRange(cell.Column, cell.Row);
 
         #endregion
 

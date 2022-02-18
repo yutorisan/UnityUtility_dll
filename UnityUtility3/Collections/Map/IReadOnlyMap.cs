@@ -7,7 +7,6 @@ namespace UnityUtility.Collections
     public interface IReadOnlyMap<out T> : IEnumerable<T>
     {
         T this[int column, int row] { get; }
-        T this[Cell cell] { get; }
         /// <summary>
         /// マップの行数を取得します
         /// </summary>
@@ -37,10 +36,10 @@ namespace UnityUtility.Collections
         /// <returns></returns>
         IEnumerable<T> GetColumnEnumerable(int column);
         /// <summary>
-        /// すべてのセルとその値に対する任意の処理を実行します
+        /// Cell（行列番号＋値）に対する列挙を取得します
         /// </summary>
         /// <returns></returns>
-        void DoForEachCell(Action<Cell, T> cellAction);
+        IEnumerable<ICell<T>> GetCellEnumerable();
         /// <summary>
         /// 列番号がMapの範囲内かどうか判定します
         /// </summary>
@@ -60,12 +59,6 @@ namespace UnityUtility.Collections
         /// <param name="row"></param>
         /// <returns></returns>
         bool IsWithInRange(int column, int row);
-        /// <summary>
-        /// 指定されたセルがMapの範囲内かどうか判定します
-        /// </summary>
-        /// <param name="cell"></param>
-        /// <returns></returns>
-        bool IsWithInRange(Cell cell);
     }
 }
 

@@ -14,21 +14,6 @@ namespace UnityUtility.Collections
         /// </summary>
         /// <returns></returns>
         IObservable<MapCellReplaceEvent<T>> ObservableCellReplace();
-        ///// <summary>
-        ///// マップの単一行の書き換え通知を提供します
-        ///// </summary>
-        ///// <returns></returns>
-        //IObservable<MapRowReplaceEvent<T>> ObservableRowReplace();
-        ///// <summary>
-        ///// マップの単一列の書き換え通知を提供します
-        ///// </summary>
-        ///// <returns></returns>
-        //IObservable<MapColumnReplaceEvent<T>> ObservableColumnReplace();
-        ///// <summary>
-        ///// マップ全体の書き換え通知を提供します
-        ///// </summary>
-        ///// <returns></returns>
-        //IObservable<MapReplaceEvent<T>> ObservableReplace();
         /// <summary>
         /// マップの拡張通知を提供します
         /// </summary>
@@ -39,7 +24,7 @@ namespace UnityUtility.Collections
     {
     }
 
-    public record MapCellReplaceEvent<T>(Cell Cell, T oldValue, T newValue);
+    public record MapCellReplaceEvent<T>(int row, int column, T oldValue, T newValue);
     public record MapRowReplaceEvent<T>(int row, IEnumerable<T> oldRowValues, IEnumerable<T> newRowValues);
     public record MapColumnReplaceEvent<T>(int column, IEnumerable<T> oldColumnValues, IEnumerable<T> newRowValues);
     public record MapReplaceEvent<T>(IEnumerable<T> oldValues, IEnumerable<T> newValues);

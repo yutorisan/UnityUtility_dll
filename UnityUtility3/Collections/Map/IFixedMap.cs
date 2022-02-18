@@ -6,7 +6,6 @@ namespace UnityUtility.Collections
     public interface IFixedMap<T> : IReadOnlyMap<T>
     {
         new T this[int column, int row] { get; set; }
-        new T this[Cell cell] { get; set; }
         /// <summary>
         /// 特定の行の要素を順番に書き換えます
         /// </summary>

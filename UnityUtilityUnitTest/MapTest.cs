@@ -75,8 +75,8 @@ namespace UnityUtilityUnitTest
         {
             //取得と書き換え
             map[4, 6] = 5;
-            map[new Cell(6, 4)] = 6;
-            map[new Cell(4, 6)].Is(5);
+            map[6, 4] = 6;
+            map[4, 6].Is(5);
             map[6, 4].Is(6);
             //範囲外アクセス
             Assert.Throws<IndexOutOfRangeException>(() => map[10, 9]);
