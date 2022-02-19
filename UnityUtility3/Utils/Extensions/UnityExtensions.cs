@@ -17,14 +17,15 @@ namespace UnityUtility
         /// Spriteの大きさを指定のサイズに修正する
         /// </summary>
         /// <param name="renderer"></param>
-        /// <param name="size">このサイズに修正する。指定しなければ1x1</param>
-        public static void NormalizeSize(this SpriteRenderer renderer, Vector2? size = null)
+        /// <param name="targetSize">このサイズに修正する。指定しなければ1x1</param>
+        public static void NormalizeSize(this SpriteRenderer renderer, Vector2? targetSize = null)
         {
-            size ??= Vector2.one;
-            float sizeX = renderer.bounds.size.x;
-            float sizeY = renderer.bounds.size.y;
-            float scaleX = size.Value.x / sizeX;
-            float scaleY = size.Value.y / sizeY;
+            Vector2 size = targetSize ?? Vector2.one;
+            Vector2 firstScale = renderer.transform.localScale;
+            float boundX = renderer.bounds.size.x / firstScale.x;
+            float boundY = renderer.bounds.size.y / firstScale.y;
+            float scaleX = size.x / boundX;
+            float scaleY = size.y / boundY;
             renderer.gameObject.transform.localScale = new Vector2(scaleX, scaleY);
         }
     }
