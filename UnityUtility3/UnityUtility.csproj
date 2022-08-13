@@ -41,7 +41,4 @@
     <Folder Include="Rx\" />
     <Folder Include="Utils\" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.57.0.2727" />
-  </ItemGroup>
 </Project>
