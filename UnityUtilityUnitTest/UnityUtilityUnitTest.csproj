@@ -13,6 +13,7 @@
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.57.0.2727" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,7 @@
     <None Remove="UnityUtility" />
     <None Remove="UniRx" />
     <None Remove="UnityEngine.CoreModule" />
+    <None Remove="Google.Apis.Sheets.v4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnityUtility3\UnityUtility.csproj" />

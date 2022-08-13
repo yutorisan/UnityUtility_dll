@@ -23,13 +23,14 @@
     <None Remove="Modules\" />
     <None Remove="Rx\" />
     <None Remove="Utils\" />
+    <None Remove="Google.Apis.Sheets.v4" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UniRx">
-      <HintPath>..\..\..\EleCuit-02106\Client\EleCuit\Library\ScriptAssemblies\UniRx.dll</HintPath>
+      <HintPath>/Users/yamashitaryoya/Repository/UnityProjects/EleCuit-02106/Client/EleCuit/Library/ScriptAssemblies/UniRx.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Applications\2021.1.24f1\Unity.app\Contents\PlaybackEngines\MacStandaloneSupport\Variations\mono\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>/Applications/2022.1.7f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managed/UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -39,5 +40,8 @@
     <Folder Include="Modules\" />
     <Folder Include="Rx\" />
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.57.0.2727" />
   </ItemGroup>
 </Project>
