@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using UniRx;
 using UnityUtility.Enums;
+using UnityUtility.Linq;
 using UnityUtility.Linq.Modules;
 using UnityUtility.Modules;
 
@@ -80,6 +81,32 @@ namespace UnityUtility.Collections
             this.RowCount = source2dArray.GetLength(0);
             this.PlainValue = plainValue;
             this.m_map = source2dArray.Cast<T>().ToArray();
+        }
+        /// <summary>
+        /// ネストされたコレクションからマップを作成します
+        /// </summary>
+        /// <param name="nestedCollection"></param>
+        /// <param name="plainValue">足りない部分を埋める値</param>
+        public Map(IEnumerable<IEnumerable<T>> nestedCollection, T plainValue = default)
+        {
+            //内部コレクションを即評価してリスト化
+            //本来ならば引数の段階でIListにすべきだが、共変性が使えないため泣く泣く
+            //(IReadOnlyList<T>もIList<T>が継承してないので断念)
+            List<List<T>> listed = nestedCollection.Select(inner => inner.ToList()).ToList();
+            this.RowCount = listed.Count;
+            this.ColumnCount = listed.Max(inner => inner.Count);
+            this.PlainValue = plainValue;
+            List<T> list = new List<T>();
+            foreach (var innerList in listed)
+            {
+                var innerCollectionCount = innerList.Count;
+                for (int i = 0; i < ColumnCount; i++)
+                {
+                    //内部コレクションの要素数最大に合わせ、余った箇所はplainでうめる
+                    list.Add(i < innerCollectionCount ? innerList[i] : plainValue);
+                }
+            }
+            this.m_map = list.ToArray();
         }
         /// <summary>
         /// 元となる別のMapをクローン元として新しいMapを作成します（シャローコピー）
